@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\registerController;
+use App\Http\Controllers\loginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/registerUserRoute',[registerController::class,'registerUser'])->name('register');
+
+Route::get('/loginUserRoute',[loginController::class,'loginUser'])->name('login');
+
+
+// Route::get('/logInRoute', [LoginController::class, 'showLoginForm'])->name('logIn');
+
+// Route::post('/logInRoute', [LoginController::class, 'logIn'])->name('logIn.submit');
+
+// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
