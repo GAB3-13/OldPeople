@@ -15,7 +15,7 @@ return new class extends Migration
          Schema::create('doctor_appointments', function (Blueprint $table) {
             $table->id('appointmentID');
             $table->unsignedBigInteger('doctorID');
-            $table->foreign('doctorID')->references('individualID')->on('individuals');
+            // $table->foreign('doctorID')->references('individualID')->on('individuals');
             $table->unsignedBigInteger('patientID');
             // $table->foreign('patientID')->references('patientID')->on('patients');
             $table->date('scheduleDate');
