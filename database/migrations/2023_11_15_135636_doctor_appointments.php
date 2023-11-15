@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('doctorID');
             $table->foreign('doctorID')->references('individualID')->on('individuals');
             $table->unsignedBigInteger('patientID');
-            $table->foreign('patientID')->references('patientID')->on('patients');
+            // $table->foreign('patientID')->references('patientID')->on('patients');
             $table->date('scheduleDate');
             $table->date('seenDate')->nullable();
             $table->string('comment', 255)->nullable();

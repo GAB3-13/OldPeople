@@ -15,9 +15,9 @@ return new class extends Migration
         Schema::create('caregivers', function (Blueprint $table) {
             $table->id('caregiverID');
             $table->unsignedBigInteger('individualID');
-            $table->foreign('individualID')->references('individualID')->on('individuals');
+            // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->unsignedBigInteger('careGroupID');
-            $table->foreign('careGroupID')->references('careGroupID')->on('care_groups');
+            // $table->foreign('careGroupID')->references('careGroupID')->on('care_groups');
             $table->timestamps();
         });
     }

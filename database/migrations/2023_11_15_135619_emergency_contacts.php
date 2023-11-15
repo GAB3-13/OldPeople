@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('emergency_contacts', function (Blueprint $table) {
             $table->id('emergencyContactID');
             $table->unsignedBigInteger('patientID');
-            $table->foreign('patientID')->references('patientID')->on('patients');
+            // $table->foreign('patientID')->references('patientID')->on('patients');
             $table->integer('familyCode');
             $table->string('emergencyContact', 255);
             $table->string('relation', 20);

@@ -15,7 +15,7 @@ return new class extends Migration
          Schema::create('supervisors', function (Blueprint $table) {
             $table->id('supervisorID');
             $table->unsignedBigInteger('individualID');
-            $table->foreign('individualID')->references('individualID')->on('individuals');
+            // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->timestamps();
         });
     }

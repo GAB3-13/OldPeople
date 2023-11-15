@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id('patientID');
             $table->unsignedBigInteger('individualID');
-            $table->foreign('individualID')->references('individualID')->on('individuals');
+            // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->unsignedBigInteger('careGroup');
             $table->foreign('careGroup')->references('id')->on('care_groups');
             $table->date('admissionDate');

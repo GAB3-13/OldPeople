@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('approvals', function (Blueprint $table) {
             $table->id('approvalID');
             $table->unsignedBigInteger('individualID');
-            $table->foreign('individualID')->references('individualID')->on('individuals');
+            // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->string('role', 255);
             $table->timestamps();
         });
