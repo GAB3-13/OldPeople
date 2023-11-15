@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('individuals', function (Blueprint $table) {
             $table->id('individualID');
             $table->unsignedBigInteger('roleID');
-            $table->foreign('roleID')->references('id')->on('roles');
+            // $table->foreign('roleID')->references('id')->on('roles');
             $table->string('fName', 30);
             $table->string('lName', 30);
             $table->string('email', 255);
