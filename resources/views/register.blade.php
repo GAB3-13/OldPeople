@@ -25,21 +25,34 @@
   <!-- Vertical List of Input Fields -->
   <section class="input-fields">
     <h2>Register here</h2>
-    {{-- <form action="{{ route('registerUser') }}" method="post" accept-charset="UTF-8"> --}}
+    <form action="{{ route('registerUser') }}" method="post" accept-charset="UTF-8">
         {{ csrf_field() }}
-    <ul>
-      <li><input type="text" placeholder="Field 1"></li>
-      <li><input type="text" placeholder="Field 2"></li>
-      <li><input type="text" placeholder="Field 3"></li>
-      <li><input type="text" placeholder="Field 4"></li>
-      <li><input type="text" placeholder="Field 5"></li>
-      <li><input type="text" placeholder="Field 6"></li>
-      <li><input type="text" placeholder="Field 7"></li>
-      <li><input type="text" placeholder="Field 8"></li>
-    </ul>
-    <button type="submit">Open Account</button>
-                            {{-- </form> --}}
-  </section>
+        <ul>
+            <li>
+                <label for="fName">First Name</label>
+                <input type="text" id="fName" name="fName" placeholder="Enter your first name" required>
+            </li>
+            <li>
+                <label for="lName">Last Name</label>
+                <input type="text" id="lName" name="lName" placeholder="Enter your last name" required>
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </li>
+            <li>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </li>
+            <li>
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" placeholder="Enter your date of birth" required>
+            </li>
+        </ul>
+        <button type="submit">Open Account</button>
+    </form>
+</section>
+
   
 
 
