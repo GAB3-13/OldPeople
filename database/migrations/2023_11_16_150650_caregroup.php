@@ -11,23 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // caregivers table
-        Schema::create('caregivers', function (Blueprint $table) {
-            $table->id('caregiverID');
+        // rosters table
+        Schema::create('caregroup', function (Blueprint $table) {
+            $table->id('careGroupID');
             $table->unsignedBigInteger('individualID');
             // $table->foreign('individualID')->references('individualID')->on('individuals');
-            $table->unsignedBigInteger('careGroupID');
-            // $table->foreign('careGroupID')->references('careGroupID')->on('caregroup');
-            $table->timestamps();
+            $table->unsignedBigInteger('caregiverID');
+            // $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
         });
-    }            
-    
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('caregivers');
+        Schema::dropIfExists('caregroup');
     }
 };

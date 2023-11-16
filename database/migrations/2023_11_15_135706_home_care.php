@@ -14,6 +14,7 @@ return new class extends Migration
         // home_care table
         Schema::create('home_care', function (Blueprint $table) {
             $table->id('appointmentID');
+            $table->unsignedBigInteger('patientID');
             // $table->foreign('patientID')->references('patientID')->on('patient');
             $table->unsignedBigInteger('doctorID');
             // $table->foreign('doctorID')->references('doctorID')->on('doctors');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('individualID');
             // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->unsignedBigInteger('careGroupID');
-            // $table->foreign('careGroup')->references('id')->on('care_groups');
+            // $table->foreign('careGroupID')->references('careGroupID')->on('caregroup');
             $table->date('admissionDate');
             $table->string('morningMed', 255)->nullable();
             $table->string('afternoonMed', 255)->nullable();
