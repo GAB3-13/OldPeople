@@ -57,7 +57,7 @@ body {
     background-color: #555;
   }
 
-  input {
+  .login {
     width: 100%;
     padding: 10px;
     border: none;
@@ -68,7 +68,7 @@ body {
     transition: background-color 0.3s ease;
   }
   
-  input:hover {
+  .login:hover {
     background-color: #555;
   }
   

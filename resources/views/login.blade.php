@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-echo "Hello";
+
 ?>
 
 <html lang="en">
@@ -36,7 +36,7 @@ echo "Hello";
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value="<?php echo $password;?>" required>
       </div>
-      <input type="submit" name="Login" value="Login"/>
+      <input type="submit" name="Login" value="Login" class="login"/>
     </form>
   </div>
 </body>
