@@ -16,7 +16,7 @@ session_start();
 <body>
 
   <?php
-  if (!isset($_POST['Login'])) {
+  if (!isset($_POST['login'])) {
       $email = "";
       $password = "";
   } else {
@@ -36,7 +36,7 @@ session_start();
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value="<?php echo $password;?>" required>
       </div>
-      <input type="submit" name="Login" value="Login" class="login"/>
+      <input type="submit" name="login" value="login" class="login"/>
     </form>
   </div>
 </body>

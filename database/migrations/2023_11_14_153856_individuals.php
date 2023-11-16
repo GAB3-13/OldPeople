@@ -24,7 +24,8 @@ return new class extends Migration
 
     public function down()
     {
-        // Drop tables in reverse order to avoid foreign key constraint issues
+    
         Schema::dropIfExists('individuals');
     }
 };
+

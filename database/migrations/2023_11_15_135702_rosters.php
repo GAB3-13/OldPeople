@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('supervisorID');
             // $table->foreign('supervisorID')->references('supervisorID')->on('supervisors');
             $table->unsignedBigInteger('doctorID');
-            $table->foreign('doctorID')->references('doctorID')->on('doctors');
+            // $table->foreign('doctorID')->references('doctorID')->on('doctors');
             $table->unsignedBigInteger('caregiverID');
             // $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
             $table->timestamps();

@@ -14,14 +14,6 @@
     <p>We will take care of you I swear!</p>
     <!-- Add any content for the hero section -->
   </section>
-
-  <!-- Hero Section 2 -->
-  <section class="hero-2">
-    <h2>Special Offer</h2>
-    <p>Exclusive deals just for you!(maybe)</p>
-    <!-- Add any content for the second hero section -->
-  </section>
-
   <!-- Vertical List of Input Fields -->
   <section class="input-fields">
     <h2>Register here</h2>
