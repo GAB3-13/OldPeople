@@ -4,7 +4,6 @@
 session_start();
 $email = "";
 $password = "";
-echo "Hello";
 ?>
 
 <html lang="en">
