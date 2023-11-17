@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class doctorAppointment extends Controller
+class doctorAppointmentController extends Controller
 {
     public function doctorAppointment()
     {    
