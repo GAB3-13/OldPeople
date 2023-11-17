@@ -17,7 +17,7 @@
   <!-- Vertical List of Input Fields -->
   <section class="input-fields">
     <h2>Register here</h2>
-    <form action="{{ route('registerUser') }}" method="post" accept-charset="UTF-8">
+    <form action="{{ route('register') }}" method="post" accept-charset="UTF-8">
         {{ csrf_field() }}
         <ul>
             <li>

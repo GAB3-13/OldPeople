@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class registerController extends Controller
 {
+    public function register()
+    {    
+        return view(('register'));
+    }  
     public function registerUser(Request $request)
     {    
         $individual = new registerUser();
@@ -22,6 +26,6 @@ class registerController extends Controller
     $individual->save();
 
     // Optionally, you can return a response or redirect somewhere after the item is saved
-    return redirect()->route('//loginUserRoute');
+    return redirect()->route('//login');
     }  
 }

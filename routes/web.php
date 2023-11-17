@@ -23,9 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registerUserRoute',[registerController::class,'registerUser'])->name('register');
+Route::get('/register',[registerController::class,'register'])->name('register');
 
-Route::get('/loginUserRoute',[loginController::class,'loginUser'])->name('login');
+Route::get('/login',[loginController::class,'login'])->name('login');
 
 Route::get('/additionalPInfo',[additionalPInfoController::class,'additionalPInfo'])->name('additionalPInfo');
 
