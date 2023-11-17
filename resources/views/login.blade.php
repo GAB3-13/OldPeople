@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-session_start();
-$email = "";
-$password = "";
+
 ?>
 
 <html lang="en">
@@ -17,17 +15,17 @@ $password = "";
 <body>
 
   <?php
+  session_start();
+  $email = "";
   if (!isset($_POST['submit'])) {
       $email = "";
-      $password = "";
   } else {
       $email = $_POST['email'];
-      $password = $_POST['password'];
   }
-  
       ?>
 
   <div class="login-container">
+
     <form class="login-form" action="post">
       <h2>Login</h2>
       <div class="input-group">
@@ -36,10 +34,12 @@ $password = "";
       </div>
       <div class="input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" value="<?php echo $password;?>" required>
+        <input type="password" id="password" name="password" required>
       </div>
-      <input type="submit" name="submit" value="login" class="login"/>
+      <input type="submit" name="submit" value="login" class="login">
     </form>
+
+  
   </div>
 </body>
 
