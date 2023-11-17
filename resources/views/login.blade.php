@@ -2,7 +2,9 @@
 
 <?php
 session_start();
-
+$email = "";
+$password = "";
+echo "Hello";
 ?>
 
 <html lang="en">
@@ -16,17 +18,18 @@ session_start();
 <body>
 
   <?php
-  if (!isset($_POST['login'])) {
+  if (!isset($_POST['submit'])) {
       $email = "";
       $password = "";
   } else {
       $email = $_POST['email'];
       $password = $_POST['password'];
   }
+  
       ?>
 
   <div class="login-container">
-    <form class="login-form">
+    <form class="login-form" action="post">
       <h2>Login</h2>
       <div class="input-group">
         <label for="email">Email</label>
@@ -36,7 +39,7 @@ session_start();
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value="<?php echo $password;?>" required>
       </div>
-      <input type="submit" name="login" value="login" class="login"/>
+      <input type="submit" name="submit" value="login" class="login"/>
     </form>
   </div>
 </body>
