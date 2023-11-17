@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\additionalPInfoController;
+use App\Http\Controllers\roleInsertionController;
 
 
 /*
@@ -26,6 +27,8 @@ Route::get('/registerUserRoute',[registerController::class,'registerUser'])->nam
 Route::get('/loginUserRoute',[loginController::class,'loginUser'])->name('login');
 
 Route::get('/additionalPInfo',[additionalPInfoController::class,'additionalPInfo'])->name('additionalPInfo');
+
+Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
 
 // Route::get('/logInRoute', [LoginController::class, 'showLoginForm'])->name('logIn');
