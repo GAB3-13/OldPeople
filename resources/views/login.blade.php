@@ -37,7 +37,11 @@
         <input type="password" id="password" name="password" required>
       </div>
       <input type="submit" name="submit" value="login" class="login">
+      <a href="/register">Register</a>
     </form>
+    
+    <br>
+      
 
   
   </div>
