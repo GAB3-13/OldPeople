@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
-<?php
-
+<?PHP
+session_start();
+$email = "";
 ?>
-
 <html lang="en">
 
 <head>
@@ -13,20 +12,8 @@
 </head>
 
 <body>
-
-  <?php
-  session_start();
-  $email = "";
-  if (!isset($_POST['submit'])) {
-      $email = "";
-  } else {
-      $email = $_POST['email'];
-  }
-      ?>
-
   <div class="login-container">
-
-    <form class="login-form" action="post">
+    <form class="login-form" method="GET">
       <h2>Login</h2>
       <div class="input-group">
         <label for="email">Email</label>
@@ -39,11 +26,6 @@
       <input type="submit" name="submit" value="login" class="login">
       <a href="/register">Register</a>
     </form>
-    
-    <br>
-      
-
-  
   </div>
 </body>
 
