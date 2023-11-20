@@ -8,16 +8,13 @@
 </head>
 <body>
 
-  <!-- Hero Section 1 -->
   <section class="hero">
     <h1>Register Old People</h1>
     <p>We will take care of you I swear!</p>
-    <!-- Add any content for the hero section -->
   </section>
-  <!-- Vertical List of Input Fields -->
   <section class="input-fields">
     <h2>Register here</h2>
-    <form action="{{ route('register') }}" method="post" accept-charset="UTF-8">
+    <form action="{{ route('register.submit') }}" method="post" accept-charset="UTF-8">
         {{ csrf_field() }}
         <ul>
             <li>
@@ -40,6 +37,34 @@
                 <label for="dob">Date of Birth</label>
                 <input type="date" id="dob" name="dob" placeholder="Enter your date of birth" required>
             </li>
+            <li>
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password" placeholder="Enter your Password" required>
+            </li>
+            <li>
+                <label for="role">Role</label>
+                <select name="roleID" id="roleID" onchange="showPatientFields()">
+                    <option>Choose an option</option> 
+                    <option value="1">Patient</option>
+                    <option value="2">Caregiver</option>
+                    <option value="3">Doctor</option>
+                    <option value="4">Family Member</option>
+                    <option value="5">Supervisor</option>
+
+                </select>
+            </li>
+
+            <li id="patientFields" style="display: none;">
+
+                <label for="patientCondition">Family Code</label>
+                <input type="text" id="familyCode" name="familyCode" placeholder="Enter Family Code">
+
+                <label for="patientHistory">Emergency Contact</label>
+                <input type="text" id="emergencyContact" name="emergencyContact" placeholder="emergencyContact">
+
+                <label for="insurance">Relationship to Emergency Contact</label>
+                <input type="text" id="ecRelationship" name="ecRelationship" placeholder="Relationship to Emergency Contact">
+            </li>
         </ul>
         <button type="submit">Open Account</button>
     </form>
@@ -48,17 +73,18 @@
   
 
 
-{{-- once patient is selected the it's going to show up --}}
+<script>
+    function showPatientFields() {
+        var role = document.getElementById('roleID');
+        var patientFields = document.getElementById('patientFields');
 
-  {{-- <script>
-    function display(event) {
-        event.preventDefault();
-        var input = document.getElementsByName("phoneNumber2")[0];
-        input.style.display = "block";
-        input.previousElementSibling.style.display = "block"; // Display the label
+        if (role.value === '1') {
+            patientFields.style.display = 'block';
+        } else {
+            patientFields.style.display = 'none';
+        }
     }
-
-</script> --}}
+</script>
 
 
 

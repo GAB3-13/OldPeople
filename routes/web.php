@@ -25,6 +25,8 @@ Route::get('/', function () {
 
 Route::get('/register',[registerController::class,'register'])->name('register');
 
+Route::post('/register-submit', [registerController::class, 'registerUser'])->name('register.submit');
+
 Route::get('/login',[loginController::class,'login'])->name('login');
 
 Route::get('/additionalPInfo',[additionalPInfoController::class,'additionalPInfo'])->name('additionalPInfo');

@@ -9,9 +9,12 @@ return new class extends Migration
     public function up()
     {
 
+
+
+        
         //individuals
         Schema::table('individuals', function (Blueprint $table) {
-            $table->foreign('roleID')->references('roleID')->on('roles');
+            // $table->foreign('roleID')->references('roleID')->on('roles');
         });
 
 //passwords
@@ -165,7 +168,7 @@ return new class extends Migration
 
     // Drop from individuals table
     Schema::table('individuals', function (Blueprint $table) {
-        $table->dropForeign(['roleID']);
+        // $table->dropForeign(['roleID']);
     });
 
     
