@@ -14,8 +14,8 @@
     <div class="hero-content">
       <h1>Welcome to Old People Care</h1>
       <div class="buttons">
-        <a href="/registerUserRoute" class="btn btn-register">Register</a>
-        <a href="/loginUserRoute" class="btn btn-login">Login</a>
+        <a href="/register" class="btn btn-register">Register</a>
+        <a href="/login" class="btn btn-login">Login</a>
       </div>
     </div>
   </section>
