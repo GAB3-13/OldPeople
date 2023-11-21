@@ -8,14 +8,15 @@ $email = "";
 <head>
   <meta charset="UTF-8">
   <title>Login Page</title>
-  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/adminNav.css">
 </head>
 
 <body>
   <div class="login-container">
     <div class="login-form">
-      <input type="submit" name="submit" value="login" class="login">
-      <a href="/register">Register</a>
+    <a href="/register">
+      <input type="button" href="/register" name="submit" value="login" class="login">
+    </a>
     </div>
   </div>
 </body>
