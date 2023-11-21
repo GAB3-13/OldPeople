@@ -32,6 +32,7 @@ Route::get('/login',[loginController::class,'login'])->name('login');
 
 Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('validateLogin');
 
+// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 
 Route::get('/additionalPInfo',[additionalPInfoController::class,'additionalPInfo'])->name('additionalPInfo');
 
@@ -42,8 +43,11 @@ Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppoi
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 
 
-// Route::get('/logInRoute', [LoginController::class, 'showLoginForm'])->name('logIn');
 
-// Route::post('/logInRoute', [LoginController::class, 'logIn'])->name('logIn.submit');
 
-// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
+//do all of the routes for all the different pages
+// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+
