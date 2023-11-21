@@ -14,11 +14,11 @@ return new class extends Migration
         // home_care table
         Schema::create('home_care', function (Blueprint $table) {
             $table->id('appointmentID');
-            $table->unsignedBigInteger('patientID');
+            $table->unsignedBigInteger('patientID')->nullable();
             // $table->foreign('patientID')->references('patientID')->on('patient');
-            $table->unsignedBigInteger('doctorID');
+            $table->unsignedBigInteger('doctorID')->nullable();
             // $table->foreign('doctorID')->references('doctorID')->on('doctors');
-            $table->date('appointmentDate');
+            $table->date('appointmentDate')->nullable();
             $table->unsignedBigInteger('caregiverID');
             // $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
             $table->string('morningMeds', 255)->nullable();

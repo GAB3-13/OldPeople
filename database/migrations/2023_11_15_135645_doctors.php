@@ -14,14 +14,14 @@ return new class extends Migration
         // doctors table
         Schema::create('doctors', function (Blueprint $table) {
             $table->id('doctorID');
-            $table->unsignedBigInteger('individualID');
+            $table->unsignedBigInteger('individualID')->nullable();
             // $table->foreign('individualID')->references('individualID')->on('individuals');
-            $table->string('name', 255);
-            $table->string('specialization', 255);
-            $table->string('qualification', 255);
-            $table->string('license_number', 20);
-            $table->string('contact_number', 15);
-            $table->text('address');
+            $table->string('name', 255)->nullable();
+            $table->string('specialization', 255)->nullable();
+            $table->string('qualification', 255)->nullable();
+            $table->string('license_number', 20)->nullable();
+            $table->string('contact_number', 15)->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

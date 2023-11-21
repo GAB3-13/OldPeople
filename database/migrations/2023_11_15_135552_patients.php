@@ -14,11 +14,11 @@ return new class extends Migration
         // patients table
         Schema::create('patients', function (Blueprint $table) {
             $table->id('patientID');
-            $table->unsignedBigInteger('individualID');
+            $table->unsignedBigInteger('individualID')->nullable();
             // $table->foreign('individualID')->references('individualID')->on('individuals');
-            $table->unsignedBigInteger('careGroupID');
+            $table->unsignedBigInteger('careGroupID')->nullable();
             // $table->foreign('careGroupID')->references('careGroupID')->on('caregroup');
-            $table->date('admissionDate');
+            $table->date('admissionDate')->nullable();
             $table->string('morningMed', 255)->nullable();
             $table->string('afternoonMed', 255)->nullable();
             $table->string('nightMed', 255)->nullable();

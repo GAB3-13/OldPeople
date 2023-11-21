@@ -14,7 +14,7 @@ return new class extends Migration
          // passwords table
          Schema::create('passwords', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('individualID');
+            $table->unsignedBigInteger('individualID')->nullable();
             // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->string('password', 255);
             $table->timestamps();

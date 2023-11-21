@@ -14,9 +14,9 @@ return new class extends Migration
         // rosters table
         Schema::create('caregroup', function (Blueprint $table) {
             $table->id('careGroupID');
-            $table->unsignedBigInteger('individualID');
+            $table->unsignedBigInteger('individualID')->nullable();
             // $table->foreign('individualID')->references('individualID')->on('individuals');
-            $table->unsignedBigInteger('caregiverID');
+            $table->unsignedBigInteger('caregiverID')->nullable();
             // $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
         });
     }

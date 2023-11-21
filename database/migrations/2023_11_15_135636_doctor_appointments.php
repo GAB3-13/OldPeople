@@ -14,11 +14,11 @@ return new class extends Migration
          // doctor_appointments table
          Schema::create('doctor_appointments', function (Blueprint $table) {
             $table->id('appointmentID');
-            $table->unsignedBigInteger('doctorID');
+            $table->unsignedBigInteger('doctorID')->nullable();
             // $table->foreign('doctorID')->references('individualID')->on('individuals');
-            $table->unsignedBigInteger('patientID');
+            $table->unsignedBigInteger('patientID')->nullable();
             // $table->foreign('patientID')->references('patientID')->on('patients');
-            $table->date('scheduleDate');
+            $table->date('scheduleDate')->nullable();
             $table->date('seenDate')->nullable();
             $table->string('comment', 255)->nullable();
             $table->string('newComment', 255)->nullable();
