@@ -14,9 +14,9 @@ return new class extends Migration
         // caregivers table
         Schema::create('caregivers', function (Blueprint $table) {
             $table->id('caregiverID');
-            $table->unsignedBigInteger('individualID');
+            $table->unsignedBigInteger('individualID')->nullable();
             // $table->foreign('individualID')->references('individualID')->on('individuals');
-            $table->unsignedBigInteger('careGroupID');
+            $table->unsignedBigInteger('careGroupID')->nullable();
             // $table->foreign('careGroupID')->references('careGroupID')->on('caregroup');
             $table->timestamps();
         });

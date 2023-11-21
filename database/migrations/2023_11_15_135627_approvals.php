@@ -14,9 +14,9 @@ return new class extends Migration
         // approvals table
         Schema::create('approvals', function (Blueprint $table) {
             $table->id('approvalID');
-            $table->unsignedBigInteger('individualID');
+            $table->unsignedBigInteger('individualID')->nullable();
             // $table->foreign('individualID')->references('individualID')->on('individuals');
-            $table->string('role', 255);
+            $table->string('role', 255)->nullable();
             $table->timestamps();
         });
     }

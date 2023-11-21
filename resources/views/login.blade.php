@@ -13,7 +13,9 @@ $email = "";
 
 <body>
   <div class="login-container">
-    <form class="login-form" method="GET">
+    <form action="{{ route('validateLogin') }}" class="login-form" method="POST" >
+      {{ csrf_field() }}
+
       <h2>Login</h2>
       <div class="input-group">
         <label for="email">Email</label>
@@ -24,7 +26,7 @@ $email = "";
         <input type="password" id="password" name="password" required>
       </div>
       <input type="submit" name="submit" value="login" class="login">
-      <a href="/register">Register</a>
+      {{-- <a href="/register">Register</a> --}}
     </form>
   </div>
 </body>

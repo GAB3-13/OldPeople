@@ -14,11 +14,11 @@ return new class extends Migration
         // emergency_contacts table
         Schema::create('emergency_contacts', function (Blueprint $table) {
             $table->id('emergencyContactID');
-            $table->unsignedBigInteger('patientID');
+            $table->unsignedBigInteger('patientID')->nullable();
             // $table->foreign('patientID')->references('patientID')->on('patients');
-            $table->integer('familyCode');
-            $table->string('emergencyContact', 255);
-            $table->string('relation', 20);
+            $table->integer('familyCode')->nullable();
+            $table->string('emergencyContact', 255)->nullable();
+            $table->string('relation', 20)->nullable();
             $table->timestamps();
         });
     }
