@@ -6,7 +6,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\additionalPInfoController;
 use App\Http\Controllers\roleInsertionController;
 use App\Http\Controllers\doctorAppointmentController;
-use App\Http\Controllers\adminNavigationController;
+use App\Http\Controllers\adminController;
 
 
 /*
@@ -43,6 +43,8 @@ Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppoi
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 
 
+//admin route
+Route::get('/adminlogin',[adminController::class,'adminlogin'])->name('adminlogin');
 
 
 //do all of the routes for all the different pages

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?PHP
+<?php
 session_start();
 $email = "";
 ?>
@@ -12,13 +12,15 @@ $email = "";
 </head>
 
 <body>
-  <div class="login-container">
-    <div class="login-form">
-    <a href="/register">
-      <input type="button" href="/register" name="submit" value="login" class="login">
-    </a>
-    </div>
-  </div>
+  <aside class="sidebar">
+    <ul class="sidebar-menu">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Profile Manager</a></li>
+      <li><a href="#">User Payments</a></li>
+      <li><a href="#">Salaries</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </aside>
 </body>
 
 </html>
