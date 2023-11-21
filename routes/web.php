@@ -6,6 +6,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\additionalPInfoController;
 use App\Http\Controllers\roleInsertionController;
 use App\Http\Controllers\doctorAppointmentController;
+use App\Http\Controllers\adminNavigationController;
 
 
 /*
@@ -29,11 +30,16 @@ Route::post('/register-submit', [registerController::class, 'registerUser'])->na
 
 Route::get('/login',[loginController::class,'login'])->name('login');
 
+Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('validateLogin');
+
+
 Route::get('/additionalPInfo',[additionalPInfoController::class,'additionalPInfo'])->name('additionalPInfo');
 
 Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
 Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppointment'])->name('doctorAppointment');
+
+Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 
 
 // Route::get('/logInRoute', [LoginController::class, 'showLoginForm'])->name('logIn');

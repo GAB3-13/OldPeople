@@ -14,7 +14,7 @@ return new class extends Migration
          // supervisors table
          Schema::create('supervisors', function (Blueprint $table) {
             $table->id('supervisorID');
-            $table->unsignedBigInteger('individualID');
+            $table->unsignedBigInteger('individualID')->nullable();
             // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->timestamps();
         });

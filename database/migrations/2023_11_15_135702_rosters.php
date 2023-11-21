@@ -14,11 +14,11 @@ return new class extends Migration
         // rosters table
         Schema::create('rosters', function (Blueprint $table) {
             $table->id('rosterID');
-            $table->unsignedBigInteger('supervisorID');
+            $table->unsignedBigInteger('supervisorID')->nullable();
             // $table->foreign('supervisorID')->references('supervisorID')->on('supervisors');
-            $table->unsignedBigInteger('doctorID');
+            $table->unsignedBigInteger('doctorID')->nullable();
             // $table->foreign('doctorID')->references('doctorID')->on('doctors');
-            $table->unsignedBigInteger('caregiverID');
+            $table->unsignedBigInteger('caregiverID')->nullable();
             // $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
             $table->timestamps();
         });
