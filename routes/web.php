@@ -7,7 +7,7 @@ use App\Http\Controllers\additionalPInfoController;
 use App\Http\Controllers\roleInsertionController;
 use App\Http\Controllers\doctorAppointmentController;
 use App\Http\Controllers\adminController;
-
+use App\Http\Controllers\profileManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +48,8 @@ Route::get('/adminlogin',[adminController::class,'adminlogin'])->name('adminlogi
 
 
 //do all of the routes for all the different pages
-// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
-// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+Route::get('/adminNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
+Route::get('/adminNavigation/profileManager/updateStatus',[profileNavigationController::class,'updateStatus'])->name('updateStatus');
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class individuals extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'fName',
         'lName',

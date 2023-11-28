@@ -12,6 +12,9 @@ $email = "";
 </head>
 
 <body>
+
+  @include('header')
+
   <aside class="sidebar">
     <ul class="sidebar-menu">
       <li><a href="#">Dashboard</a></li>
