@@ -14,7 +14,7 @@ $email = "";
 <body>
 
   @include('header')
-  <h1>admin nav</h1>
+  <h1>salaries</h1>
 </body>
 
 </html>

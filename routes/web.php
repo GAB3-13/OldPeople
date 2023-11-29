@@ -44,12 +44,14 @@ Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation
 
 
 //admin route
-Route::get('/adminlogin',[adminController::class,'adminlogin'])->name('adminlogin');
-
-
-//do all of the routes for all the different pages
+Route::get('/adminNavigation',[adminController::class,'adminlogin'])->name('adminlogin');
+//do all of the routes for all the different  admin pages
 Route::get('/adminNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
-Route::get('/adminNavigation/profileManager/updateStatus',[profileNavigationController::class,'updateStatus'])->name('updateStatus');
+Route::post('/adminNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
+Route::post('/adminNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
+Route::get('/adminNavigation/userPayments',[userPaymentsController::class,'userPayments'])->name('userpayments');
+Route::get('/adminNavigation/salaries',[salariesController::class,'salaries'])->name('salaries');
+
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 

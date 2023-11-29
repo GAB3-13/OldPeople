@@ -4,10 +4,10 @@
 
 <aside class="sidebar" id="sidebar">
   <ul class="sidebar-menu">
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Profile Manager</a></li>
-      <li><a href="#">User Payments</a></li>
-      <li><a href="#">Salaries</a></li>
+      <li><a href="/adminlogin">Dashboard</a></li>
+      <li><a href="/adminNavigation/profileManager">Profile Manager</a></li>
+      <li><a href="/adminNavigation/userPayments">User Payments</a></li>
+      <li><a href="/adminNavigation/salaries">Salaries</a></li>
       <li><a href="#">Logout</a></li>
   </ul>
 </aside>
@@ -65,6 +65,7 @@ ul {
   background-color: #333;
   color: white;
   padding-top: 20px;
+  float: left;
 }
 
 /* Style sidebar menu */
