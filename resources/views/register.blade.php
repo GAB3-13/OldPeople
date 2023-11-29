@@ -9,6 +9,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <link rel="stylesheet" href="/css/register.css">
+
+
+    <script>
+        function showPatientFields() {
+            var role = document.getElementById('roleID');
+            var patientFields = document.getElementById('patientFields');
+            if (role.value === '1') {
+                patientFields.style.display = 'block';
+            } else {
+                patientFields.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputField = document.getElementById('numberInput');
+
+            inputField.addEventListener('input', function() {
+                let inputValue = inputField.value.replace(/\D/g, '');
+                let formattedValue = formatPhoneNumber(inputValue);
+                inputField.value = formattedValue;
+            });
+
+            inputField.addEventListener('keydown', function(event) {
+                if (inputField.value.length >= 13 && event.key !== 'Backspace' && event.key !== 'Tab') {
+                    event.preventDefault();
+                }
+            });
+
+            function formatPhoneNumber(value) {
+                let formattedNumber = '';
+
+                for (let i = 0; i < value.length; i++) {
+                    if (i === 0) {
+                        formattedNumber += '(';
+                    }
+                    if (i === 3) {
+                        formattedNumber += ')';
+                    }
+                    if (i === 6) {
+                        formattedNumber += '-';
+                    }
+                    formattedNumber += value[i];
+                }
+                return formattedNumber;
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -40,8 +87,8 @@
                     </li>
                     <li>
                         <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
-                            required>
+                        <input type="tel" id="numberInput" name="phone" placeholder="Enter your phone number"
+                            pattern="\(\d{3}\)\d{3}-\d{4}" required>
                     </li>
                     <li>
                         <label for="dob">Date of Birth</label>
@@ -54,7 +101,7 @@
                     </li>
                     <li>
                         <label for="role">Role</label>
-                        <select name="roleID" id="roleID" onchange="showPatientFields()">
+                        <select name="roleID" id="roleID" onchange="showPatientFields()" required>
                             <option>Choose an option</option>
                             <option value="1">Patient</option>
                             <option value="2">Caregiver</option>
@@ -64,23 +111,22 @@
 
                         </select>
                     </li>
-
                     <ul id="patientFields" style="display: none;">
-                    <li>
-                        <label for="patientCondition">Family Code</label>
-                        <input type="text" id="familyCode" name="familyCode" placeholder="Enter Family Code">
-                    </li>
-                    <li>
-                        <label for="patientHistory">Emergency Contact</label>
-                        <input type="text" id="emergencyContact" name="emergencyContact"
-                            placeholder="emergencyContact">
-                    </li>
-                    <li>
-                        <label for="insurance">Relationship to Emergency Contact</label>
-                        <input type="text" id="ecRelationship" name="ecRelationship"
-                            placeholder="Relationship to Emergency Contact">
-                    </li>
-                </ul>
+                        <li>
+                            <label for="patientCondition">Family Code</label>
+                            <input type="text" id="familyCode" name="familyCode" placeholder="Enter Family Code">
+                        </li>
+                        <li>
+                            <label for="patientHistory">Emergency Contact</label>
+                            <input type="text" id="emergencyContact" name="emergencyContact"
+                                placeholder="emergencyContact">
+                        </li>
+                        <li>
+                            <label for="insurance">Relationship to Emergency Contact</label>
+                            <input type="text" id="ecRelationship" name="ecRelationship"
+                                placeholder="Relationship to Emergency Contact">
+                        </li>
+                    </ul>
                 </ul>
                 <button type="submit">Open Account</button><br><br>
                 <span>Already have an account: </span><a href="/login">Click here</a>
@@ -91,16 +137,7 @@
 
 
     <script>
-        function showPatientFields() {
-            var role = document.getElementById('roleID');
-            var patientFields = document.getElementById('patientFields');
 
-            if (role.value === '1') {
-                patientFields.style.display = 'block';
-            } else {
-                patientFields.style.display = 'none';
-            }
-        }
     </script>
 
 
