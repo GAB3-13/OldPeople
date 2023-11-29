@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('fName', 30);
             $table->string('lName', 30);
             $table->string('email', 255);
-            $table->string('phone', 12);
+            $table->string('phone', 13);
             $table->date('dob');
-            $table->boolean('approved')->default(0); 
+            $table->boolean('approved')->default(0);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-    
+
         Schema::dropIfExists('individuals');
     }
 };
