@@ -8,7 +8,7 @@ class adminController extends Controller
 {
     public function adminlogin()
     {    
-        return view('adminNavigation');
+        return view('adminpages/adminNavigation');
     }  
     
 }

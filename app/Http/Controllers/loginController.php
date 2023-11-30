@@ -45,7 +45,7 @@ class LoginController extends Controller
                             return redirect()->route('supervisor.dashboard');
                             break;
                         case 6: // admin
-                            return redirect()->route('admin.dashboard');
+                            return redirect()->route('adminlogin');
                             break;
                         default:
                             return 'Unknown role';

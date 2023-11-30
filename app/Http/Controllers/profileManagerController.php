@@ -26,7 +26,7 @@ class profileManagerController extends Controller
                 return redirect()->route('profileManager')->with('success', 'Status updated successfully');
         }
     
-        return redirect()->route('adminpages/profileManager')->with('error', 'Record not found');
+        return redirect()->route('profileManager')->with('error', 'Record not found');
 
 
 }
@@ -38,10 +38,10 @@ public function unapproveupdateStatus(Request $request){
     if($individual){
 
         $individual->update(['approved' => 0]);
-            return redirect()->route('adminpages/profileManager')->with('success', 'Status updated successfully');
+            return redirect()->route('profileManager')->with('success', 'Status updated successfully');
     }
 
-    return redirect()->route('adminpages/profileManager')->with('error', 'Record not found');
+    return redirect()->route('profileManager')->with('error', 'Record not found');
 
 
 }

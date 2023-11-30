@@ -15,6 +15,7 @@ $email = "";
 
   @include('header')
   <h1>admin nav</h1>
+ <img src="{{ asset('images/roleidmeanings.png')}}" alt="" srcset="">
 </body>
 
 </html>
