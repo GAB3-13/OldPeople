@@ -35,9 +35,8 @@ class salariesController extends Controller
     {
         // dd($request->all());
 
-        $individualID = substr($request->input('individualID'), 10); // Extract individualID from input name
+        $individualID = substr($request->input('individualID'), 10);
         // dd($individualID);
-        // $roleID = $request->input('roleID');
         $newSalary = $request->input('individual' . $individualID . 'Salary');
 
         salaries::updateOrCreate(
