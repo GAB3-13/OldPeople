@@ -37,14 +37,14 @@
     </style>
 </head>
 <body>
-
+<form action="">
     <h2>Doctor's Appointment</h2>
 
     <label for="patientID">Patient ID:</label>
     <input type="text" id="patientID" placeholder="Enter Patient ID">
 
     <label for="date">Date:</label>
-    <input type="text" id="date" placeholder="Enter Date">
+    <input type="date" id="date" placeholder="Enter Date">
 
     <label for="doctor">Doctor:</label>
     <select id="doctor">
@@ -54,11 +54,11 @@
     </select>
 
     <label for="patientName">Patient's Name:</label>
-    <input type="text" id="patientName" placeholder="Enter Patient's Name">
+    <input type="text" id="patientName" disabled>
 
-    <button onclick="submitForm()">OK</button>
-    <button class="cancel" onclick="resetForm()">Cancel</button>
-
+    <input value="OK" type="submit">
+    <input class="cancel" value="Cancel" type="reset">
+</form>
     <script>
         function submitForm() {
             // Add your logic here to handle form submission and updating information

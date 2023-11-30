@@ -29,8 +29,7 @@ $email = '';
                 </div>
 
             <input type="submit" name="submit" value="login" class="login">
-            <span class="register">Need to Register: </span><a class="register" href="/register">Click here</a>
-
+            <span class="register">Register: </span><a class="register" href="/register">Click here</a>
         </form>
     </div>
 </body>
