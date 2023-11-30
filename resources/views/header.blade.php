@@ -4,7 +4,7 @@
 
 <aside class="sidebar" id="sidebar">
   <ul class="sidebar-menu">
-      <li><a href="/adminlogin">Dashboard</a></li>
+      <li><a href="/adminNavigation">Dashboard</a></li>
       <li><a href="/adminNavigation/profileManager">Profile Manager</a></li>
       <li><a href="/adminNavigation/userPayments">User Payments</a></li>
       <li><a href="/adminNavigation/salaries">Salaries</a></li>

@@ -8,6 +8,9 @@ use App\Http\Controllers\roleInsertionController;
 use App\Http\Controllers\doctorAppointmentController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\profileManagerController;
+use App\Http\Controllers\salariesController;
+use App\Http\Controllers\userPaymentsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +54,8 @@ Route::post('/adminNavigation/profileManager/updateStatus', [profileManagerContr
 Route::post('/adminNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
 Route::get('/adminNavigation/userPayments',[userPaymentsController::class,'userPayments'])->name('userpayments');
 Route::get('/adminNavigation/salaries',[salariesController::class,'salaries'])->name('salaries');
+Route::post('/adminNavigation/salaries',[salariesController::class,'updateSalary'])->name('updateSalary');
+
 
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
