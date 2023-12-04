@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,8 @@
             margin-bottom: 5px;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             padding: 8px;
             margin-bottom: 15px;
@@ -36,29 +38,35 @@
         }
     </style>
 </head>
+
 <body>
-<form action="">
-    <h2>Doctor's Appointment</h2>
+    <form action="reload()">
+        <h2>Doctor's Appointment</h2>
 
-    <label for="patientID">Patient ID:</label>
-    <input type="text" id="patientID" placeholder="Enter Patient ID">
+        <label for="date">Date:</label>
+        <select id="dates" name="date" onchange="getDoctor()" required>
+            <option value="" disabled selected hidden>Select a date</option>
+            @foreach ($dates as $date)
+                <option>{{ $date->scheduleDate }}</option>
+            @endforeach
+        </select>
 
-    <label for="date">Date:</label>
-    <input type="date" id="date" placeholder="Enter Date">
+        <label for="doctor">Doctor:</label>
+        <select id="doctor">
+            @foreach ($doctors as $data)
+                <option value={{ $data->individualID }}>Dr. {{ $data->lName }}</option>
+            @endforeach
+        </select>
 
-    <label for="doctor">Doctor:</label>
-    <select id="doctor">
-        <option value="drSmith">Dr. Smith</option>
-        <option value="drJones">Dr. Jones</option>
-        <option value="drDoe">Dr. Doe</option>
-    </select>
+        <label for="patientID">Patient ID:</label>
+        <input type="text" id="patientID" placeholder="Enter Patient ID" required>
 
-    <label for="patientName">Patient's Name:</label>
-    <input type="text" id="patientName" disabled>
+        <label for="patientName">Patient's Name:</label>
+        <input type="text" id="patientName" disabled>
 
-    <input value="OK" type="submit">
-    <input class="cancel" value="Cancel" type="reset">
-</form>
+        <input value="OK" type="submit">
+        <input class="cancel" value="Cancel" type="reset">
+    </form>
     <script>
         function submitForm() {
             // Add your logic here to handle form submission and updating information
@@ -75,4 +83,5 @@
     </script>
 
 </body>
+
 </html>
