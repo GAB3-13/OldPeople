@@ -19,6 +19,10 @@ use App\Http\Controllers\patientController;
 use App\Http\Controllers\patientscheduleController;
 use App\Http\Controllers\patienthubController;
 
+//caregiver
+use App\Http\Controllers\caregiverController;
+
+
 
 
 
@@ -78,6 +82,12 @@ Route::get('/supervisorNavigation/roster',[rosterController::class,'roster'])->n
 Route::get('/patientNavigation',[patientController::class,'patientlogin'])->name('patientlogin');
 Route::get('/patientNavigation/patientschedule',[patientscheduleController::class,'patientSchedule'])->name('patientSchedule');
 Route::get('/patientNavigation/hub',[patienthubController::class,'hub'])->name('hub');
+
+
+//caregiver routes
+Route::get('/caregiverNavigation',[caregiverController::class,'caregiverlogin'])->name('caregiverlogin');
+
+
 
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
