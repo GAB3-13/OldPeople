@@ -46,6 +46,8 @@
     </style>
 </head>
 <body>
+    @include('patientpages/patientheader')
+
     <div class="container">
         <div class="box">
             <label for="patientId">Patient ID:</label>

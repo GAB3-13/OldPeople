@@ -14,6 +14,12 @@ use App\Http\Controllers\salariesController;
 use App\Http\Controllers\supervisorController;
 use App\Http\Controllers\userPaymentsController;
 
+//patients
+use App\Http\Controllers\patientController;
+use App\Http\Controllers\patientscheduleController;
+use App\Http\Controllers\patienthubController;
+
+
 
 
 
@@ -68,7 +74,10 @@ Route::get('/supervisorNavigation/activity',[activityController::class,'activity
 Route::get('/supervisorNavigation/roster',[rosterController::class,'roster'])->name('roster');
 
 
-
+// patients routes
+Route::get('/patientNavigation',[patientController::class,'patientlogin'])->name('patientlogin');
+Route::get('/patientNavigation/patientschedule',[patientscheduleController::class,'patientSchedule'])->name('patientSchedule');
+Route::get('/patientNavigation/hub',[patienthubController::class,'hub'])->name('hub');
 
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
