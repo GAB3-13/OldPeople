@@ -114,7 +114,7 @@
                     <ul id="patientFields" style="display: none;">
                         <li>
                             <label for="patientCondition">Family Code</label>
-                            <input type="text" id="familyCode" name="familyCode" placeholder="Enter Family Code">
+                            <input type="number" id="familyCode" name="familyCode" placeholder="Enter Family Code">
                         </li>
                         <li>
                             <label for="patientHistory">Emergency Contact</label>
