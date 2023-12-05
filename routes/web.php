@@ -53,8 +53,6 @@ Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('
 Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
 Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppointment'])->name('doctorAppointment');
-Route::get('doctors',[doctorAppointmentController::class,'getDoctor'])->name('getDoctor');
-Route::get('patients',[doctorAppointmentController::class,'getPatient'])->name('getPatient');
 
 //admin route
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');

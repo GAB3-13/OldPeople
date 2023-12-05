@@ -37,26 +37,65 @@
             background-color: #f44336;
         }
     </style>
+        <script>
+            function whatTheFuckIsYourProblem() {
+                x = document.getElementById('date').value;
+                console.log(x);
+            }
+
+            function submitForm() {
+                // Add your logic here to handle form submission and updating information
+                alert("Appointment information submitted!");
+            }
+
+            function resetForm() {
+                // Add your logic here to reset the form
+                document.getElementById("patientID").value = "";
+                document.getElementById("date").value = "";
+                document.getElementById("doctor").selectedIndex = 0; // Reset the dropdown to the first option
+                document.getElementById("patientName").value = "";
+            }
+        </script>
+        {{-- <script type="text/javascript">
+            $(document).ready(function (){
+                $('#date').on('change', function() {
+                    var todayDate = this.value;
+                    $('#doctor').html('');
+                    $.ajax({
+                        url '{{ route('getDoctor') }}?doctorID='+doctorID,
+                        type 'get',
+                        success: function (res) {
+                            $('#doctorID').hmtl('<option value="">Select Doctor</option>');
+                            $.each(res, function (key, value) {
+                                $('#doctorID').append('<option value=""'
+                                + value.id + '">' + value.name + '</option>');
+                            });
+                            $('#patientID').html('<option value=""> Select Patient</option>');
+                        }
+                    })
+                })
+            })
+        </script> --}}
 </head>
 
 <body>
     <form action="reload()">
         <h2>Doctor's Appointment</h2>
 
-        <label for="date">Date:</label>
-        <select id="dates" name="date" onchange="getDoctor()" required>
+        <label for="date">Appointments:</label>
+        <select id="date" name="date" onchange="whatTheFuckIsYourProblem();" required>
             <option value="" disabled selected hidden>Select a date</option>
-            @foreach ($dates as $date)
-                <option>{{ $date->scheduleDate }}</option>
+            @foreach ($doctors as $doctor)
+                <option value={{ $doctor->appointmentID }}>{{ $doctor->scheduleDate }} - Dr. {{ $doctor->fName }} {{ $doctor->lName }}</option>
             @endforeach
         </select>
 
-        <label for="doctor">Doctor:</label>
+        {{-- <label for="doctor">Doctor:</label>
         <select id="doctor">
-            {{-- @foreach ($doctors as $data)
+            @foreach ($doctors as $data)
                 <option value={{ $data->individualID }}>Dr. {{ $data->lName }}</option>
-            @endforeach --}}
-        </select>
+            @endforeach
+        </select> --}}
 
         <label for="patientID">Patient ID:</label>
         <input type="text" id="patientID" placeholder="Enter Patient ID" required>
@@ -66,48 +105,12 @@
 
         <input value="OK" type="submit">
         <input class="cancel" value="Cancel" type="reset">
+
     </form>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://lab.iamrohit.in/js/location.js"></script>
 
-    <script>
 
-        function submitForm() {
-            // Add your logic here to handle form submission and updating information
-            alert("Appointment information submitted!");
-        }
 
-        function resetForm() {
-            // Add your logic here to reset the form
-            document.getElementById("patientID").value = "";
-            document.getElementById("date").value = "";
-            document.getElementById("doctor").selectedIndex = 0; // Reset the dropdown to the first option
-            document.getElementById("patientName").value = "";
-        }
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function (){
-            $('#date').on('change', function() {
-                var todayDate = this.value;
-                $('#doctor').html('');
-                $.ajax({
-                    url '{{ route('getDoctor') }}?doctorID='+doctorID,
-                    type 'get',
-                    success: function (res) {
-                        $('#doctorID').hmtl('<option value="">Select Doctor</option>');
-                        $.each(res, function (key, value) {
-                            $('#doctorID').append('<option value=""'
-                            + value.id + '">' + value.name + '</option>');
-                        });
-                        $('#patientID').html('<option value=""> Select Patient</option>');
-                    }
-                })
-            })
-        })
-
-    </script>
 
 </body>
 

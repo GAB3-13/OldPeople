@@ -9,17 +9,34 @@ class doctorAppointmentController extends Controller
 {
     public function doctorAppointment()
     {
-        // return view(('doctorAppointment'));
         $dates = doctorAppointment::all();
-        $doctors = individuals::where('roleID', 3)
+        $doctors = individuals::join('doctor_Appointments', 'doctorID', '=', 'individualID')
+        ->where('roleID', 3)
         ->where('approved', 1)
         ->get();
         return view('doctorAppointment', compact('doctors', 'dates'));
 
-        // $approvedIndividuals =  individuals::where('approved', 1)->get();
     }
 
-    // public function getDoctor(Request $request)
+    public function getAppointments() {
+        $appointnemts = doctorAppointment::all();
+        return $appointnemts;
+    }
+
+    public function getDoctor(Request $request) {
+        $doctors = individuals::where('individualID', $request->doctorID)
+        ->get();
+            return response()->json($doctors);
+    }
+
+    public function getPatient(Request $request) {
+        $patient = individuals::where('individualID', $request->patientID)
+        ->get();
+            return response()->json($patient);
+    }
+
+
+        // public function getDoctor(Request $request)
     // {
     //     $getDate = $request->select('date');
 
@@ -38,24 +55,6 @@ class doctorAppointmentController extends Controller
 
     //     // }
     // }
-
-    public function getAppointments() {
-        $appointnemts = doctorAppointment::all();
-        return $appointnemts;
-    }
-
-    public function getDoctor(Request $request) {
-        $doctors = individuals::where('individualID', $request->doctorID)
-        ->get();
-            return response()->json($doctors);
-    }
-
-    public function getPatient(Request $request) {
-        $patient = individuals::where('individualID', $request->doctorID)
-        ->get();
-            return response()->json($patient);
-    }
-
     // public function getDoctor(Request $request)
     // {
     //     $getDate = $request->select('date');
