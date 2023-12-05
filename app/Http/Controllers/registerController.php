@@ -12,12 +12,12 @@ use Illuminate\Http\Request;
 class registerController extends Controller
 {
     public function register()
-    {
+    {    
         return view(('register'));
-    }
+    }  
 
     public function registerUser(Request $request)
-    {
+    {    
         $data = $request->all();
 
         // Store data into the respective tables using the models
@@ -30,8 +30,7 @@ class registerController extends Controller
             'roleID' =>$data['roleID']
         ]);
 
-        $individualID = $individual->individualID;
-        // dd($individualID);
+        $individualID = $individual->id;
 
         password::create([
             'individualID'=>$individualID,
@@ -39,8 +38,10 @@ class registerController extends Controller
 
         ]);
 
-        if($data['roleID']== 1){
+        
 
+        if($data['roleID']== 1){
+            
             $patients = patients::create([
                 'individualID' => $individualID,
                 'careGroupID' => null,
@@ -60,11 +61,11 @@ class registerController extends Controller
 
         }
 
-        //we need to input tthe information from the form into the individuals
-        //table the password table and if its a patient then also need to be added to the emergency and patient
-
+        //we need to input tthe information from the form into the individuals 
+        //table the password table and if its a patient then also need to be added to the emergency and patient 
+  
 
     // Optionally, you can return a response or redirect somewhere after the item is saved
     return redirect()->route('login');
-    }
+    }  
 }
