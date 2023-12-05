@@ -13,9 +13,11 @@ $email = "";
 
 <body>
 
-  @include('header')
+  @include('adminpages/header')
+  <div class="content-container">
   <h1>admin nav</h1>
  <img src="{{ asset('images/roleidmeanings.png')}}" alt="" srcset="">
+  </div>
 </body>
 
 </html>

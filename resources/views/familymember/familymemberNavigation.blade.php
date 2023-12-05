@@ -13,10 +13,12 @@ $email = "";
 
 <body>
 
-  @include('caregiverpages/caregiverheader')
+  @include('familymember/familymemberheader')
+  <div class="content-container">
+
   <h1>Family Meber nav</h1>
 
-
+  </div>
 </body>
 
 </html>

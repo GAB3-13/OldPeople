@@ -8,7 +8,7 @@
    
 </head>
 <body>
-    @include('adminpages/header')
+    @include('familymember/familymemberheader')
     <div class="content-container">
         <h1>User Payments </h1>
     </div>

@@ -22,10 +22,9 @@ use App\Http\Controllers\patienthubController;
 //caregiver
 use App\Http\Controllers\caregiverController;
 
-
-
-
-
+//family
+use App\Http\Controllers\familymemberController;
+use App\Http\Controllers\familypaymentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +87,9 @@ Route::get('/patientNavigation/hub',[patienthubController::class,'hub'])->name('
 Route::get('/caregiverNavigation',[caregiverController::class,'caregiverlogin'])->name('caregiverlogin');
 
 
+//family routes
+Route::get('/familymemberNavigation',[familymemberController::class,'familymemberlogin'])->name('familymemberlogin');
+Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');

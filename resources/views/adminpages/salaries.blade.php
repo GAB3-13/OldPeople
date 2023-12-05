@@ -13,7 +13,8 @@ $email = "";
 
 <body>
 
-  @include('header')
+  @include('adminpages/header')
+  <div class="content-container">
   <h1>Salaries</h1>
 
   <h2>Doctors</h2>
@@ -115,7 +116,7 @@ $email = "";
   </form>
   </table>
 
-
+  </div>
 </body>
 
 </html>

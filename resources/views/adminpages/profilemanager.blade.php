@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Head content -->
+        <meta charset="UTF-8">
+        <title>Salaries Page</title>
+        <link rel="stylesheet" href="/css/adminNav.css">
 </head>
 <body>
-    @include('header')
-    <div class="content">
+    @include('adminpages/header')
+    <div class="content-container">
+  
         <h1>Un-Approved users</h1>
     <table>
         <thead>
             <tr>
-                {{-- <th>ID</th> --}}
                 <th>First Name</th>
                 <th>Last Name</th>
-                {{-- <th>Email</th> --}}
                 <th>Phone</th>
                 <th>DOB</th>
                 <th>roleID</th>
@@ -23,10 +24,8 @@
         <tbody>
             @foreach($unapprovedIndividuals as $data)
                 <tr>
-                    {{-- <td>{{ $data->individualID }}</td> --}}
                     <td>{{ $data->fName }}</td>
                     <td>{{ $data->lName }}</td>
-                    {{-- <td>{{ $data->email }}</td> --}}
                     <td>{{ $data->phone }}</td>
                     <td>{{ $data->dob }}</td>
                     <td>{{ $data->roleID }}</td>
@@ -45,10 +44,8 @@
     <table>
         <thead>
             <tr>
-                {{-- <th>ID</th> --}}
                 <th>First Name</th>
                 <th>Last Name</th>
-                {{-- <th>Email</th> --}}
                 <th>Phone</th>
                 <th>DOB</th>
                 <th>roleID</th>
@@ -58,10 +55,8 @@
         <tbody>
             @foreach($approvedIndividuals as $data)
                 <tr>
-                    {{-- <td>{{ $data->individualID }}</td> --}}
                     <td>{{ $data->fName }}</td>
                     <td>{{ $data->lName }}</td>
-                    {{-- <td>{{ $data->email }}</td> --}}
                     <td>{{ $data->phone }}</td>
                     <td>{{ $data->dob }}</td>
                     <td>{{ $data->roleID }}</td>
@@ -76,7 +71,7 @@
             @endforeach
         </tbody>
     </table>
-    </div>
+  
     <style>
       
 .content {
@@ -85,5 +80,6 @@
 }
 
     </style>
+    </div>
 </body>
 </html>

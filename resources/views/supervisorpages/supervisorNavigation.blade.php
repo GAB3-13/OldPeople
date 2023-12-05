@@ -14,8 +14,10 @@ $email = "";
 <body>
 
   @include('supervisorpages/supervisorheader')
+  <div class="content-container">
   <h1>Supervisor nav</h1>
  <img src="{{ asset('images/roleidmeanings.png')}}" alt="" srcset="">
+  </div>
 </body>
 
 </html>
