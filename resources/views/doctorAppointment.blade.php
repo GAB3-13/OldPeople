@@ -53,9 +53,9 @@
 
         <label for="doctor">Doctor:</label>
         <select id="doctor">
-            @foreach ($doctors as $data)
+            {{-- @foreach ($doctors as $data)
                 <option value={{ $data->individualID }}>Dr. {{ $data->lName }}</option>
-            @endforeach
+            @endforeach --}}
         </select>
 
         <label for="patientID">Patient ID:</label>
@@ -67,7 +67,12 @@
         <input value="OK" type="submit">
         <input class="cancel" value="Cancel" type="reset">
     </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://lab.iamrohit.in/js/location.js"></script>
+
     <script>
+
         function submitForm() {
             // Add your logic here to handle form submission and updating information
             alert("Appointment information submitted!");
@@ -80,6 +85,28 @@
             document.getElementById("doctor").selectedIndex = 0; // Reset the dropdown to the first option
             document.getElementById("patientName").value = "";
         }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $('#date').on('change', function() {
+                var todayDate = this.value;
+                $('#doctor').html('');
+                $.ajax({
+                    url '{{ route('getDoctor') }}?doctorID='+doctorID,
+                    type 'get',
+                    success: function (res) {
+                        $('#doctorID').hmtl('<option value="">Select Doctor</option>');
+                        $.each(res, function (key, value) {
+                            $('#doctorID').append('<option value=""'
+                            + value.id + '">' + value.name + '</option>');
+                        });
+                        $('#patientID').html('<option value=""> Select Patient</option>');
+                    }
+                })
+            })
+        })
+
     </script>
 
 </body>

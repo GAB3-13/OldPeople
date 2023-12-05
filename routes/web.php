@@ -43,25 +43,21 @@ Route::get('/', function () {
 });
 
 Route::get('/register',[registerController::class,'register'])->name('register');
-
 Route::post('/register-submit', [registerController::class, 'registerUser'])->name('register.submit');
 
 Route::get('/login',[loginController::class,'login'])->name('login');
-
 Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('validateLogin');
 
 // Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 
-Route::get('/additionalPInfo',[additionalPInfoController::class,'additionalPInfo'])->name('additionalPInfo');
-
 Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
 Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppointment'])->name('doctorAppointment');
-
-Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
-
+Route::get('doctors',[doctorAppointmentController::class,'getDoctor'])->name('getDoctor');
+Route::get('patients',[doctorAppointmentController::class,'getPatient'])->name('getPatient');
 
 //admin route
+Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 Route::get('/adminNavigation',[adminController::class,'adminlogin'])->name('adminlogin');
 Route::get('/adminNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
 Route::post('/adminNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
@@ -70,19 +66,15 @@ Route::get('/adminNavigation/userPayments',[userPaymentsController::class,'userP
 Route::get('/adminNavigation/salaries',[salariesController::class,'salaries'])->name('salaries');
 Route::post('/adminNavigation/salaries',[salariesController::class,'updateSalary'])->name('updateSalary');
 
-
-
 //supervisor routes
 Route::get('/supervisorNavigation',[supervisorController::class,'supervisorlogin'])->name('supervisorlogin');
 Route::get('/supervisorNavigation/activity',[activityController::class,'activity'])->name('activity');
 Route::get('/supervisorNavigation/roster',[rosterController::class,'roster'])->name('roster');
 
-
 // patients routes
 Route::get('/patientNavigation',[patientController::class,'patientlogin'])->name('patientlogin');
 Route::get('/patientNavigation/patientschedule',[patientscheduleController::class,'patientSchedule'])->name('patientSchedule');
 Route::get('/patientNavigation/hub',[patienthubController::class,'hub'])->name('hub');
-
 
 //caregiver routes
 Route::get('/caregiverNavigation',[caregiverController::class,'caregiverlogin'])->name('caregiverlogin');
@@ -90,5 +82,11 @@ Route::get('/caregiverNavigation',[caregiverController::class,'caregiverlogin'])
 
 
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
-// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 
+// Route::middleware(['auth', 'doctor'])->group(function () {
+//     Route::get('/doctor/home', [DoctorHomeController::class, 'index'])->name('doctor.home');
+//     Route::post('/doctor/submit-till-date', [DoctorHomeController::class, 'submitTillDate'])->name('doctor.submit-till-date');
+// }
+
+?>

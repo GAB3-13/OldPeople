@@ -8,35 +8,42 @@ use Illuminate\Http\Request;
 
 class doctorAppointmentController extends Controller
 {
-    public function doctorAppointment()
-    {
-        // return view(('doctorAppointment'));
+    public function doctorAppointment() {
         $dates = doctorAppointment::all();
         $doctors = individuals::where('roleID', 3)
         ->where('approved', 1)
         ->get();
         return view('doctorAppointment', compact('doctors', 'dates'));
-
-        // $approvedIndividuals =  individuals::where('approved', 1)->get();
     }
 
-    public function getDoctor(Request $request)
-    {
-        $getDate = $request->select('date');
+    public function getAppointments() {
+        $appointnemts = doctorAppointment::all();
+        return $appointnemts;
+    }
 
-        $doctors = individuals::where('roleID', 3)
-        ->where('approved', 1)
-        ->where()
+    public function getDoctor(Request $request) {
+        $doctors = individuals::where('individualID', $request->doctorID)
         ->get();
-        return view('/doctorAppointmennt', compact('doctors'));
+            return response()->json($doctors);
     }
 
-    // public function patientLookup()
+    public function getPatient(Request $request) {
+        $patient = individuals::where('individualID', $request->doctorID)
+        ->get();
+            return response()->json($patient);
+    }
+
+    // public function getDoctor(Request $request)
     // {
+    //     $getDate = $request->select('date');
+    //     echo $getDate;
 
-    //     // $individual = individuals::find($request->individualID);
-    //     // if ($individual) {
-
-    //     // }
+    //     $doctors = individuals::where('roleID', 3)
+    //     ->where('approved', 1)
+    //     ->where()
+    //     ->get();
+    //     return view('/doctorAppointmennt', compact('doctors'));
     // }
+
+
 }
