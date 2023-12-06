@@ -97,12 +97,13 @@
             <input type="text" id="dinner" readonly>
         </div>
     </div>
-
+//b
     <script>
         function scheduleAppointment() {
             var appointmentDetails = prompt("Enter appointment details:");
             document.getElementById("appointmentDetails").innerText = "Appointment: " + appointmentDetails;
         }
     </script>
+
 </body>
 </html>
