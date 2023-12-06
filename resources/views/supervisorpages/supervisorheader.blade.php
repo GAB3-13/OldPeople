@@ -3,7 +3,7 @@
       <img src="{{ asset('images/cane.png') }}" alt="cane" id="cane" class="header-image">
   </div>
   <div class="header-middle">
-      <h1>Elderly Care<div><img src="{{ asset('images/wheelchair.png') }}" alt="wheelchair" id="crutch"></div></h1>
+      <h1>Graceful Haven Care Homediv><img src="{{ asset('images/wheelchair.png') }}" alt="wheelchair" id="crutch"></div></h1>
   </div>
   <div class="header-right">
       <a href="#" id="logoutLink">Logout</a>

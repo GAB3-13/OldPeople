@@ -47,6 +47,7 @@
 </head>
 <body>
     @include('patientpages/patientheader')
+    <div class="content-container">
 
     <div class="container">
         <div class="box">
@@ -99,7 +100,7 @@
             <input type="text" id="dinner" readonly>
         </div>
     </div>
-//b
+    </div>ß
     <script>
         function scheduleAppointment() {
             var appointmentDetails = prompt("Enter appointment details:");

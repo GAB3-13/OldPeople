@@ -38,7 +38,7 @@ use App\Http\Controllers\familypaymentsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home/welcome');
 });
 
 Route::get('/register',[registerController::class,'register'])->name('register');

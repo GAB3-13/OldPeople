@@ -61,8 +61,7 @@
 <body>
 
     <section class="hero">
-        <h1>Register Old People</h1>
-        <p>We will take care of you I swear!</p>
+        <h1> A Path to a better life</h1>
     </section>
     <section class="input-fields">
         <div class="register-container">
@@ -128,7 +127,7 @@
                         </li>
                     </ul>
                 </ul>
-                <button type="submit">Open Account</button><br><br>
+                <button type="submit" class="button">Open Account</button><br><br>
                 <span>Already have an account: </span><a href="/login">Click here</a>
         </div>
         </form>

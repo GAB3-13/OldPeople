@@ -14,8 +14,11 @@ $email = "";
 <body>
 
   @include('patientpages/patientheader')
+  <div class="content-container">
+
   <h1>Patient nav</h1>
  <img src="{{ asset('images/roleidmeanings.png')}}" alt="" srcset="">
+  </div>
 </body>
 
 </html>
