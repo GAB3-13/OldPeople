@@ -37,45 +37,25 @@
             background-color: #f44336;
         }
     </style>
-        <script>
-            function whatTheFuckIsYourProblem() {
-                x = document.getElementById('date').value;
-                console.log(x);
-            }
+    <script>
+        function whatTheFuckIsYourProblem() {
+            x = document.getElementById('date').value;
+            console.log(x);
+        }
 
-            function submitForm() {
-                // Add your logic here to handle form submission and updating information
-                alert("Appointment information submitted!");
-            }
+        function submitForm() {
+            // Add your logic here to handle form submission and updating information
+            alert("Appointment information submitted!");
+        }
 
-            function resetForm() {
-                // Add your logic here to reset the form
-                document.getElementById("patientID").value = "";
-                document.getElementById("date").value = "";
-                document.getElementById("doctor").selectedIndex = 0; // Reset the dropdown to the first option
-                document.getElementById("patientName").value = "";
-            }
-        </script>
-        {{-- <script type="text/javascript">
-            $(document).ready(function (){
-                $('#date').on('change', function() {
-                    var todayDate = this.value;
-                    $('#doctor').html('');
-                    $.ajax({
-                        url '{{ route('getDoctor') }}?doctorID='+doctorID,
-                        type 'get',
-                        success: function (res) {
-                            $('#doctorID').hmtl('<option value="">Select Doctor</option>');
-                            $.each(res, function (key, value) {
-                                $('#doctorID').append('<option value=""'
-                                + value.id + '">' + value.name + '</option>');
-                            });
-                            $('#patientID').html('<option value=""> Select Patient</option>');
-                        }
-                    })
-                })
-            })
-        </script> --}}
+        function resetForm() {
+            // Add your logic here to reset the form
+            document.getElementById("patientID").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("doctor").selectedIndex = 0; // Reset the dropdown to the first option
+            document.getElementById("patientName").value = "";
+        }
+    </script>
 </head>
 
 <body>
@@ -86,7 +66,8 @@
         <select id="date" name="date" onchange="whatTheFuckIsYourProblem();" required>
             <option value="" disabled selected hidden>Select a date</option>
             @foreach ($doctors as $doctor)
-                <option value={{ $doctor->appointmentID }}>{{ $doctor->scheduleDate }} - Dr. {{ $doctor->fName }} {{ $doctor->lName }}</option>
+                <option value={{ $doctor->appointmentID }}>{{ $doctor->scheduleDate }} - Dr. {{ $doctor->fName }}
+                    {{ $doctor->lName }}</option>
             @endforeach
         </select>
 
@@ -107,10 +88,6 @@
         <input class="cancel" value="Cancel" type="reset">
 
     </form>
-
-
-
-
 
 </body>
 

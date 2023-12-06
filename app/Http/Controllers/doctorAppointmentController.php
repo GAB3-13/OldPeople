@@ -1,42 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\doctorAppointment;
 use App\Models\individuals;
 use Illuminate\Http\Request;
 
 class doctorAppointmentController extends Controller
 {
-    public function doctorAppointment()
+    public function doctorAppointment(Request $request)
     {
+
         $dates = doctorAppointment::all();
         $doctors = individuals::join('doctor_Appointments', 'doctorID', '=', 'individualID')
-        ->where('roleID', 3)
-        ->where('approved', 1)
-        ->get();
+            ->where('roleID', 3)
+            ->where('approved', 1)
+            ->get();
+            $hoping = $request->session()->all();
+            print_r($hoping);
         return view('doctorAppointment', compact('doctors', 'dates'));
-
     }
 
-    public function getAppointments() {
+    public function getAppointments()
+    {
         $appointnemts = doctorAppointment::all();
         return $appointnemts;
     }
 
-    public function getDoctor(Request $request) {
+    public function getDoctor(Request $request)
+    {
         $doctors = individuals::where('individualID', $request->doctorID)
-        ->get();
-            return response()->json($doctors);
+            ->get();
+        return response()->json($doctors);
     }
 
-    public function getPatient(Request $request) {
+    public function getPatient(Request $request)
+    {
         $patient = individuals::where('individualID', $request->patientID)
-        ->get();
-            return response()->json($patient);
+            ->get();
+        return response()->json($patient);
     }
 
 
-        // public function getDoctor(Request $request)
+    // public function getDoctor(Request $request)
     // {
     //     $getDate = $request->select('date');
 
