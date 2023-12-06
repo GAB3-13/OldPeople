@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <?php
 session_start();
-$email = '';
-
-
+$_SESSION["usertype"] = "";
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
