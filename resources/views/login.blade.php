@@ -28,7 +28,8 @@ $_SESSION["usertype"] = "";
                 </div>
 
             <input type="submit" name="submit" value="login" class="login">
-            <span class="button">Register: </span><a class="register" href="/register">Click here</a>
+            
+            <span class="register">Register: </span><a class="register" href="/register">Click here</a>
         </form>
     </div>
 </body>
