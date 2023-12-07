@@ -12,12 +12,11 @@ use App\Models\password;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function login(Request $request)
     {
-        if(session_status() !== 1) {
-            session_start();
+        if(!empty(session('roleID'))){
+            $request->session()->flush();
         }
-        $session = session('userID','');
         return view('login');
     }
 
@@ -34,9 +33,12 @@ class LoginController extends Controller
             $passwordMatch = $savedPassword->password === $data['password'];
 
             if ($passwordMatch) {
-                $type = Individuals::where('email', $data['email'])
+                $role = Individuals::where('email', $data['email'])
                 ->get('roleID');
-                $request->session()->put(['userID' => $type]);
+                $user = Individuals::where('email', $data['email'])
+                ->get('individualID');
+                $request->session()->put(['roleID' => $role]);
+                $request->session()->put(['individualID' => $user]);
                 return 'correct';
             } else {
                 return 'Incorrect password';

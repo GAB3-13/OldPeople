@@ -16,8 +16,17 @@ class doctorAppointmentController extends Controller
             ->where('roleID', 3)
             ->where('approved', 1)
             ->get();
-            $hoping = $request->session()->all();
-            print_r($hoping);
+            $maybeHoping = session('roleID');
+            if(empty($maybeHoping) == 1) {
+                return redirect('/login');
+            }
+            // $maybeHoping = intval(substr(str($maybeHoping[0]),10,1));
+            // $maybeHoping = session('roleID');
+            // echo str($maybeHoping[0]);
+            // echo $maybe = $request->session()->pull('userID');
+            // echo $maybe;
+            echo "</br>".$maybeHoping;
+
         return view('doctorAppointment', compact('doctors', 'dates'));
     }
 
