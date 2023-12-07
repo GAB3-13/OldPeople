@@ -16,7 +16,7 @@ class doctorAppointmentController extends Controller
             ->where('roleID', 3)
             ->where('approved', 1)
             ->get();
-        if (empty(session('roleID')) && intval(substr(str(session('roleID')[0]), 10, 1)) != 3) {
+        if (empty(session('roleID')) || intval(substr(str(session('roleID')[0]), 10, 1)) != 3) {
             return redirect('/login');
         }
         return view('doctorAppointment', compact('doctors', 'dates'));
