@@ -13,6 +13,8 @@ use App\Http\Controllers\rosterController;
 use App\Http\Controllers\salariesController;
 use App\Http\Controllers\supervisorController;
 use App\Http\Controllers\userPaymentsController;
+//
+use App\Http\Controllers\adminNavigationController;
 
 //patients
 use App\Http\Controllers\patientController;
@@ -55,7 +57,7 @@ Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppoi
 
 //admin route
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
-Route::get('/adminNavigation',[adminController::class,'adminlogin'])->name('adminlogin');
+// Route::get('/adminNavigation',[adminController::class,'adminlogin'])->name('adminlogin');
 Route::get('/adminNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
 Route::post('/adminNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
 Route::post('/adminNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
@@ -80,6 +82,10 @@ Route::get('/caregiverNavigation',[caregiverController::class,'caregiverlogin'])
 //family routes
 Route::get('/familymemberNavigation',[familymemberController::class,'familymemberlogin'])->name('familymemberlogin');
 Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
+
+
+
+//Doctors
 
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 // Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
