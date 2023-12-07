@@ -9,12 +9,13 @@ class salariesController extends Controller
 {
     public function salaries()
 {
+    // if (empty(session('roleID')) && intval(substr(str(session('roleID')[0]), 10, 1)) != 6) {
+    //     return redirect('/login');
+    // }
     $caregiverIndividuals = Individuals::leftJoin('salaries', 'individuals.individualID', '=', 'salaries.individualID')
         ->where('individuals.roleID', 2)
         ->where('individuals.approved', 1)
         ->get(['individuals.*', 'salaries.salary']);
-       
-      
 
     $doctorIndividuals = Individuals::leftJoin('salaries', 'individuals.individualID', '=', 'salaries.individualID')
         ->where('individuals.roleID', 3)
@@ -26,17 +27,16 @@ class salariesController extends Controller
         ->where('individuals.approved', 1)
         ->get(['individuals.*', 'salaries.salary']);
 
-        // dd($caregiverIndividuals,$doctorIndividuals,$supervisorIndividuals);
-
     return view('adminpages.salaries', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals'));
 }
 
     public function updateSalary(Request $request)
     {
-        // dd($request->all());
+        // if (empty(session('roleID')) && intval(substr(str(session('roleID')[0]), 10, 1)) != 6) {
+        //     return redirect('/login');
+        // }
 
         $individualID = substr($request->input('individualID'), 10);
-        // dd($individualID);
         $newSalary = $request->input('individual' . $individualID . 'Salary');
 
         salaries::updateOrCreate(
