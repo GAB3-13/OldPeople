@@ -1,8 +1,3 @@
-<?php
-session_start();
-$_SESSION["usertype"] = "";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,10 +23,14 @@ $_SESSION["usertype"] = "";
                 </div>
 
             <input type="submit" name="submit" value="login" class="login">
-            
             <span class="register">Register: </span><a class="register" href="/register">Click here</a>
         </form>
     </div>
 </body>
 
 </html>
+
+
+
+{{-- DON'T DELETE --}}
+{{-- $request->session()->forget('userID'); --}}

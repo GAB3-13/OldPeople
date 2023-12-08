@@ -12,12 +12,11 @@ use App\Models\password;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function login(Request $request)
     {
-        if(session_status() !== 1) {
-            session_start();
+        if(!empty(session('roleID'))){
+            $request->session()->flush();
         }
-        $session = session('userID','');
         return view('login');
     }
 
@@ -71,6 +70,7 @@ class LoginController extends Controller
     
 
 }
+
 
 
 

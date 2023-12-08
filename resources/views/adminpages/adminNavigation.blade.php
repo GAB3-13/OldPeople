@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php
-session_start();
-$email = "";
-?>
 <html lang="en">
 
 <head>

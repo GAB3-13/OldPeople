@@ -6,7 +6,7 @@
       <h1>Graceful Haven Care Home<div><img src="{{ asset('images/wheelchair.png') }}" alt="wheelchair" id="crutch"></div></h1>
   </div>
   <div class="header-right">
-      <a href="#" id="logoutLink">Logout</a>
+      <a href="/login" id="logoutLink">Logout</a>
   </div>
 </header>
 
@@ -30,5 +30,4 @@
   });
 </script>
 
- 
-  
+
