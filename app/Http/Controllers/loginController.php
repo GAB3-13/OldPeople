@@ -23,15 +23,20 @@ class LoginController extends Controller
     public function validateLogin(Request $request)
     {
         $data = $request->all();
-    
+
         $individual = Individuals::where('email', $data['email'])->first();
-    
+
         if ($individual) {
             $savedPassword = Password::where('individualID', $individual->individualID)->first();
-    
+
             if ($savedPassword) {
                 $passwordMatch = $savedPassword->password === $data['password'];
-    
+
+                $userID = $individual->individualID;
+                $roleID = $individual->roleID;
+                session(['userID' => $userID]);
+                session(['roleID' => $roleID]);
+
                 if ($passwordMatch) {
                     // Redirect based on roleID
                     switch ($individual->roleID) {
@@ -42,7 +47,7 @@ class LoginController extends Controller
                             return redirect()->route('caregiverlogin');
                             break;
                         case 3: // Doctor
-                            return redirect()->route('doctor.dashboard');
+                            return redirect()->route('doctorAppointment');
                             break;
                         case 4: // Family Member
                             return redirect()->route('family.dashboard');
@@ -67,7 +72,7 @@ class LoginController extends Controller
             return 'Email not registered';
         }
     }
-    
+
 
 }
 
