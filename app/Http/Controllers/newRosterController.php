@@ -1,65 +1,54 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use App\Models\newRoster;
+use App\Models\rosters;
 
-class newRoster extends Controller
+use App\Models\individuals;
+
+class newRosterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function create()
+    public function newRoster()
     {
-        return view('roster.create');
+        $caregiverIndividuals = Individuals::where('roleID', 2)
+            ->where('approved', 1)
+            ->get(); 
+    
+        $doctorIndividuals = Individuals::where('roleID', 3)
+            ->where('approved', 1)
+            ->get(); 
+    
+        $supervisorIndividuals = Individuals::where('roleID', 5)
+            ->where('approved', 1)
+            ->get(); 
+    
+        return view('adminpages/newroster', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals'));
     }
+    
 
-    public function index()
+   
+
+    public function saveRoster(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'rosterDate' => 'required|date_format:m/d/Y',
-            'supervisor' => 'required',
-            'doctor' => 'required',
-            'caregiver1' => 'required',
-            'caregiver2' => 'required',
-            'caregiver3' => 'required',
-            'caregiver4' => 'required',
-        ]);
-
-        newRoster::create($validatedData);
-
-        return redirect()->route('roster.create')->with('success', 'Roster created successfully!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        try {
+            $validatedData = $request->validate([
+                'rosterDate' => 'required',
+                'supervisorID' => 'required',
+                'doctorID' => 'required',
+                'caregiverID1' => 'required|different:caregiverID2,different:caregiverID3',
+                'caregiverID2' => 'required|different:caregiverID1,different:caregiverID3',
+                'caregiverID3' => 'required|different:caregiverID1,different:caregiverID2',
+            ]);
+    // dd($validatedData);
+            $roster = rosters::create($validatedData);
+            return redirect()->route('newRoster')->with('success', 'Roster created successfully!');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return redirect()->route('newRoster')->with('error', $e->getMessage());
+        } catch (\Exception $e) {
+            return redirect()->route('newRoster')->with('error', 'Failed to create the roster!');
+        }
     }
 }
+    

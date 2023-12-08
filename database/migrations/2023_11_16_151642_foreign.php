@@ -71,11 +71,11 @@ return new class extends Migration
         
         });
 //rosters
-        Schema::table('rosters', function (Blueprint $table) {
-            $table->foreign('supervisorID')->references('supervisorID')->on('supervisors');
-            $table->foreign('doctorID')->references('doctorID')->on('doctors');
-            $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
-        });
+        // Schema::table('rosters', function (Blueprint $table) {
+        //     $table->foreign('supervisorID')->references('supervisorID')->on('supervisors');
+        //     $table->foreign('doctorID')->references('doctorID')->on('doctors');
+        //     $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
+        // });
 
         //home_care
         Schema::table('home_care', function (Blueprint $table) {
@@ -108,11 +108,11 @@ return new class extends Migration
     });
 
     // Drop from rosters table
-    Schema::table('rosters', function (Blueprint $table) {
-        $table->dropForeign(['supervisorID']);
-        $table->dropForeign(['doctorID']);
-        $table->dropForeign(['caregiverID']);
-    });
+    // Schema::table('rosters', function (Blueprint $table) {
+    //     $table->dropForeign(['supervisorID']);
+    //     $table->dropForeign(['doctorID']);
+    //     $table->dropForeign(['caregiverID']);
+    // });
     
 
     // Drop from caregivers table

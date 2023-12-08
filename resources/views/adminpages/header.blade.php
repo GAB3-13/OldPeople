@@ -16,6 +16,7 @@
       <li><a href="/adminNavigation/profileManager">Profile Manager</a></li>
       <li><a href="/adminNavigation/userPayments">User Payments</a></li>
       <li><a href="/adminNavigation/salaries">Salaries</a></li>
+      <li><a href="/adminNavigation/newRoster">New Roster</a></li>
   </ul>
 </aside>
 

@@ -15,7 +15,7 @@ use App\Http\Controllers\supervisorController;
 use App\Http\Controllers\userPaymentsController;
 //
 use App\Http\Controllers\adminNavigationController;
-
+use App\Http\Controllers\newRosterController;
 //patients
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\patientscheduleController;
@@ -64,6 +64,9 @@ Route::post('/adminNavigation/profileManager/unapproveupdateStatus', [profileMan
 Route::get('/adminNavigation/userPayments',[userPaymentsController::class,'userPayments'])->name('userpayments');
 Route::get('/adminNavigation/salaries',[salariesController::class,'salaries'])->name('salaries');
 Route::post('/adminNavigation/salaries',[salariesController::class,'updateSalary'])->name('updateSalary');
+Route::get('/adminNavigation/newRoster',[newRosterController::class,'newRoster'])->name('newRoster');
+Route::post('/adminNavigation/saveRoster', [newRosterController::class, 'saveRoster'])->name('saveRoster');
+
 
 //supervisor routes
 Route::get('/supervisorNavigation',[supervisorController::class,'supervisorlogin'])->name('supervisorlogin');

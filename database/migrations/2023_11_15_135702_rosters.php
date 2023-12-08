@@ -14,11 +14,15 @@ return new class extends Migration
         // rosters table
         Schema::create('rosters', function (Blueprint $table) {
             $table->id('rosterID');
+            $table->date('rosterDate');
             $table->unsignedBigInteger('supervisorID')->nullable();
             // $table->foreign('supervisorID')->references('supervisorID')->on('supervisors');
             $table->unsignedBigInteger('doctorID')->nullable();
             // $table->foreign('doctorID')->references('doctorID')->on('doctors');
-            $table->unsignedBigInteger('caregiverID')->nullable();
+            $table->unsignedBigInteger('caregiverID1')->nullable();
+            $table->unsignedBigInteger('caregiverID2')->nullable();
+            $table->unsignedBigInteger('caregiverID3')->nullable();
+
             // $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
             $table->timestamps();
         });
