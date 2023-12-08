@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\caregiver;
+use App\Models\doctor;
 use App\Models\individuals;
 use App\Models\patients;
 use App\Models\emergencyContact;
 use App\Models\password;
-
+use App\Models\supervisors;
 use Illuminate\Http\Request;
 
 class registerController extends Controller
 {
     public function register()
-    {    
+    {
         return view(('register'));
-    }  
+    }
 
     public function registerUser(Request $request)
-    {    
+    {
         $data = $request->all();
 
-        // Store data into the respective tables using the models
         $individual =individuals::create([
             'fName' => $data['fName'],
             'lName' => $data['lName'],
@@ -30,18 +31,15 @@ class registerController extends Controller
             'roleID' =>$data['roleID']
         ]);
 
-        $individualID = $individual->id;
+        $individualID = $individual->individualID;
 
         password::create([
             'individualID'=>$individualID,
             'password' =>$data['password']
-
         ]);
 
-        
+        if($data['roleID'] == 1){
 
-        if($data['roleID']== 1){
-            
             $patients = patients::create([
                 'individualID' => $individualID,
                 'careGroupID' => null,
@@ -56,16 +54,28 @@ class registerController extends Controller
                 'emergencyContact'=>$data['emergencyContact'],
                 'relation'=>$data['ecRelationship']
             ]);
-
-
-
         }
 
-        //we need to input tthe information from the form into the individuals 
-        //table the password table and if its a patient then also need to be added to the emergency and patient 
-  
+        if($data['roleID'] == 2){
 
-    // Optionally, you can return a response or redirect somewhere after the item is saved
+            caregiver::create([
+                'individualID' => $individualID,
+                'careGroupID' => null,
+            ]);
+        }
+
+        if($data['roleID'] == 3){
+            doctor::create([
+                'individualID' => $individualID,
+            ]);
+        }
+
+        if($data['roleID'] == 5){
+            supervisors::create([
+                'individualID' => $individualID,
+            ]);
+        }
+
     return redirect()->route('login');
-    }  
+    }
 }
