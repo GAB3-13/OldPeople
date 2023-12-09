@@ -28,6 +28,11 @@ use App\Http\Controllers\caregiverController;
 use App\Http\Controllers\familymemberController;
 use App\Http\Controllers\familypaymentsController;
 
+
+
+//doctor
+use App\Http\Controllers\doctorController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,13 +94,9 @@ Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'
 
 
 //Doctors
+Route::get('/doctorNavigation',[doctorController::class,'doctorlogin'])->name('doctorlogin');
+// Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 
-// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
-// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 
-// Route::middleware(['auth', 'doctor'])->group(function () {
-//     Route::get('/doctor/home', [DoctorHomeController::class, 'index'])->name('doctor.home');
-//     Route::post('/doctor/submit-till-date', [DoctorHomeController::class, 'submitTillDate'])->name('doctor.submit-till-date');
-// }
 
 ?>

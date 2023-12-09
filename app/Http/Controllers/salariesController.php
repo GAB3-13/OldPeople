@@ -36,9 +36,13 @@ class salariesController extends Controller
         //     return redirect('/login');
         // }
 
-        $individualID = substr($request->input('individualID'), 10);
-        $newSalary = $request->input('individual' . $individualID . 'Salary');
-
+        $individualID = substr($request->input('individualIDd'), 10); // for doctors
+        // OR
+        $individualID = substr($request->input('individualIDc'), 10); // for caregivers
+        // OR
+        $individualID = substr($request->input('individualIDs'), 10); // for supervisors
+                $newSalary = $request->input('individual' . $individualID . 'Salary');
+dd($individualID,$newSalary);
         salaries::updateOrCreate(
             ['individualID' => $individualID],
             ['salary' => $newSalary]

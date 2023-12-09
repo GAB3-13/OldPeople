@@ -1,5 +1,6 @@
 .content-container {
-    margin: 0 270px;
+  margin: 0 auto;
+     padding-left: 270px;  
   }
   body {
     font-family: 'Cambria', serif;
@@ -42,6 +43,94 @@
     font-size: 20px;
     color: #be5949;
   }
+
+  .error-message {
+    display: none; 
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: 2px solid #be5949; 
+    background-color: #ccc; 
+    color: #be5949;
+    border-radius: 5px;
+    z-index: 9999; 
+    transition: opacity 0.4s ease-in-out;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #eae3ea;
+  padding: 8px;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #a7b3a5;
+  color: white;
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #b4d8c0;
+}
+
+.custom-table tr:hover {
+  background-color: #be5949;
+  color: white;
+}
+.datepicker-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: #be5949;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.roster-table {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title,
+h2 {
+  text-align: center;
+  margin-top: 50px;
+  color: #be5949;
+  font-family: 'Cambria', serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #be5949;
+  font-family: 'Cambria', serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   /* header stuff */
@@ -129,7 +218,6 @@ body {
   h1 {
     margin: 0;
     font-family: 'Cambria', serif;
-    display: flex;
     align-items: center;
   }
   body,
@@ -174,7 +262,5 @@ body {
   .sidebar-menu li a:hover {
     background-color: #a7b3a5; 
   }
-  .content-container {
-    margin: 0 270px;
-  }
+ 
 

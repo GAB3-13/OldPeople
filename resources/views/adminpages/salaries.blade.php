@@ -31,7 +31,7 @@ $email = "";
     <form method="post" action="{{ route('updateSalary') }}">
       @csrf
     @foreach($doctorIndividuals as $docs)
-    <input type="hidden" name="individualID" value="individual{{ $docs->individualID }}">
+    <input type="hidden" name="individualIDd" value="individual{{ $docs->individualID }}">
     <input type="hidden" name="roleID" value="{{ $docs->roleID }}">
     <tr>
         <td>{{ $docs->fName }}</td>
@@ -63,7 +63,7 @@ $email = "";
       <form method="post" action="{{ route('updateSalary') }}">
         @csrf
       @foreach($caregiverIndividuals as $caregiver)
-      <input type="hidden" name="individualID" value="individual{{ $caregiver->individualID }}">
+      <input type="hidden" name="individualIDc" value="individual{{ $caregiver->individualID }}">
     <input type="hidden" name="roleID" value="{{ $caregiver->roleID }}">
       <tr>
           <td>{{ $caregiver->fName }}</td>
@@ -97,7 +97,7 @@ $email = "";
       <form method="post" action="{{ route('updateSalary') }}">
         @csrf
       @foreach($supervisorIndividuals as $supa)
-      <input type="hidden" name="individualID" value="individual{{ $supa->individualID }}">
+      <input type="hidden" name="individualIDs" value="individual{{ $supa->individualID }}">
     <input type="hidden" name="roleID" value="{{ $supa->roleID }}">
       <tr>
           <td>{{ $supa->fName }}</td>
@@ -117,6 +117,16 @@ $email = "";
   </table>
 
   </div>
+
+<script>
+  const successMessage = "{{ session('success') }}";
+  if (successMessage) {
+      setTimeout(() => {
+          location.reload();
+      }, 1000);
+  }
+</script>
+
 </body>
 
 </html>

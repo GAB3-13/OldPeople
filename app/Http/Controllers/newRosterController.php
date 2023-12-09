@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Models\newRoster;
 use App\Models\rosters;
+use Illuminate\Support\Carbon;
+
 
 use App\Models\individuals;
 
@@ -12,6 +14,12 @@ class newRosterController extends Controller
 {
     public function newRoster()
     {
+        $today = Carbon::today();
+
+        $setRosters = Rosters::whereDate('rosterDate', '>=', $today)
+            ->orderBy('rosterDate')
+            ->get();
+
         $caregiverIndividuals = Individuals::where('roleID', 2)
             ->where('approved', 1)
             ->get(); 
@@ -24,7 +32,7 @@ class newRosterController extends Controller
             ->where('approved', 1)
             ->get(); 
     
-        return view('adminpages/newroster', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals'));
+        return view('adminpages/newroster', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals','setRosters'));
     }
     
 
@@ -45,9 +53,9 @@ class newRosterController extends Controller
             $roster = rosters::create($validatedData);
             return redirect()->route('newRoster')->with('success', 'Roster created successfully!');
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return redirect()->route('newRoster')->with('error', $e->getMessage());
+            return redirect()->route('newRoster', ['error' => $e->getMessage()]);
         } catch (\Exception $e) {
-            return redirect()->route('newRoster')->with('error', 'Failed to create the roster!');
+            return redirect()->route('newRoster', ['error' => 'Failed to create the roster!']);
         }
     }
 }
