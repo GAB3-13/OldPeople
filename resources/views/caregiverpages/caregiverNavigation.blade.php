@@ -67,17 +67,13 @@ $email = '';
             {{ csrf_field() }}
             <label for="patientDropdown">Select Patient:</label>
             <select id="patientDropdown" name="patients" onchange="getForChange()">
-                <option value="" disabled selected hidden>Select a patient</option>
+                <option value="" disabled selected hidden>Select Patient - Date</option>
                 @foreach ($caregiverPatients as $patient)
-                    <option value={{ $patient->individualID }}>{{ $patient->fName }}
-                        {{ $patient->lName }}</option>
+                    <option value={{ $patient->appointmentID }}>{{ $patient->fName }}
+                        {{ $patient->lName }} - {{ $patient ->appointmentDate }}</option>
                 @endforeach
             </select>
             <input type="submit">
-
-            <?php if (isset($data)) {
-                echo $data->date;
-            } ?>
 
             <table id="updateTable" style="display: none">
                 <thead>

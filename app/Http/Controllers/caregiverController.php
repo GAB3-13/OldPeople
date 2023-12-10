@@ -23,8 +23,22 @@ class caregiverController extends Controller
 
     public function createCheckUpdate(Request $request)
     {
-        $data = $request->all();
+        $date = $request->input('date');
+        $appointmentID = $request->patients;
+        $appointmentInfo = home_care::where('appointmentID', $appointmentID)->get();
+        // dd($appointmentInfo);
+        $caregiverID = session('userID');
 
-        return redirect() -> route('caregiverlogin') ->with(compact('data'));
+        home_care::updateOrCreate(
+            ['appointmentID' => $appointmentID],
+            ['patientID' => $appointmentInfo[0]->patientID],
+            ['doctorID' => $appointmentInfo[0]->doctorID],
+            ['appointmentDate' => $date],
+            ['caregiverID' => $caregiverID],
+
+
+        );
+
+        return redirect()->back();
     }
 }
