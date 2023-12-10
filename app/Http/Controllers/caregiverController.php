@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\home_care;
 use App\Models\individuals;
 use Illuminate\Http\Request;
@@ -9,35 +10,53 @@ class caregiverController extends Controller
 {
     public function caregiverlogin(Request $request)
     {
+        if (empty(session('userID')) || session('roleID') != 2) {
+            return redirect('/login');
+        }
         $caregiverPatients = home_care::join('patients', 'patients.patientID', '=', 'home_care.patientID')
-        ->join('individuals', 'individuals.individualID', '=', 'patients.individualID')
-        ->where('approved', 1)
-        ->get();
+            ->join('individuals', 'individuals.individualID', '=', 'patients.individualID')
+            ->where('approved', 1)
+            ->get();
 
         $caregiverInformation = individuals::where('individualID', session('userID'))
-        ->get();
+            ->get();
+
         return view('caregiverpages/caregiverNavigation', ['cgI' => $caregiverInformation])
-        // ->with(compact('caregiverInformation'))
-        ->with(compact('caregiverPatients'));
+            ->with(compact('caregiverPatients'));
     }
 
     public function createCheckUpdate(Request $request)
     {
-        $date = $request->input('date');
-        $appointmentID = $request->patients;
+        $appointmentID = $request->appointments;
         $appointmentInfo = home_care::where('appointmentID', $appointmentID)->get();
-        // dd($appointmentInfo);
-        $caregiverID = session('userID');
+        $check = [
+            $request->breakfast,
+            $request->morning_meds,
+            $request->lunch,
+            $request->afternoon_meds,
+            $request->dinner,
+            $request->night_meds
+        ];
 
-        home_care::updateOrCreate(
-            ['appointmentID' => $appointmentID],
-            ['patientID' => $appointmentInfo[0]->patientID],
-            ['doctorID' => $appointmentInfo[0]->doctorID],
-            ['appointmentDate' => $date],
-            ['caregiverID' => $caregiverID],
+        function checkOn($data)
+        {
+            $returnarray = [];
+            foreach ($data as $d) { if ($d == "on") { $returnarray[] = "✓"; } else { $returnarray[] = "✗"; }}
+            return $returnarray;
+        }
 
+        $numbers = checkOn($check);
 
-        );
+        home_care::where('appointmentID', $appointmentID)
+            ->where('patientID', $appointmentInfo[0]->patientID)
+            ->update([
+                'morningMeds' => $numbers[1],
+                'afternoonMeds' => $numbers[3],
+                'nightMeds' => $numbers[5],
+                'breakfast' => $numbers[0],
+                'lunch' => $numbers[2],
+                'dinner' => $numbers[4]
+            ]);
 
         return redirect()->back();
     }

@@ -114,7 +114,7 @@
       </div>
       <div class="info-content">
         <h1>Location</h1>
-        <p>Located in the heart Kensington, PA. Graceful Haven Care Home is the safest place you could ever call home. </p>
+        <p>Located in the heart of Kensington, PA. Graceful Haven Care Home is the safest place you could ever call home. </p>
       </div>
     </div>
     <div class="main-content2">
