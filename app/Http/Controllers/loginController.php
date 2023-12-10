@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        if(!empty(session('roleID'))){
+        if (!empty(session('roleID'))) {
             $request->session()->flush();
         }
         return view('login');
@@ -72,13 +72,4 @@ class LoginController extends Controller
             return 'Email not registered';
         }
     }
-
-
 }
-
-
-
-
-
-
-
