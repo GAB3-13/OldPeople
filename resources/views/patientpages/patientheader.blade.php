@@ -15,6 +15,8 @@
         <li><a href="/patientNavigation">Dashboard</a></li>
         <li><a href="/patientNavigation/hub">Hub</a></li>
         <li><a href="/patientNavigation/patientschedule">Schedule</a></li>
+        <li><a href="/patientNavigation/setAppointment">Set Appointmeent</a></li>
+
     </ul>
   </aside>
   

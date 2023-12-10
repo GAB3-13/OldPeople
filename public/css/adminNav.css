@@ -241,3 +241,22 @@ ul ul {
   list-style-type: none;
   margin-right: 20px;
 }
+
+.datepicker-popup{
+  display: flex;
+  border-collapse: collapse;
+  width: 60%;
+}
+.fields-container {
+  text-align: center;
+  margin-top: 50px; 
+}
+
+.title {
+  color: #be5949;
+}
+
+.fields {
+  display: flex;
+  justify-content: center;
+}
