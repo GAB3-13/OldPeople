@@ -3,12 +3,12 @@ body {
   background-color: #EAE3EA;
   margin: 0;
   padding: 0;
- 
+
 }
 .blade-header {
     font-family: 'Great Vibes', cursive;
-  background-color: #be5949; 
-  color: #eae3ea; 
+  background-color: #be5949;
+  color: #eae3ea;
   display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,9 +19,9 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .header-image {
-  width: 60px; 
-  height: auto; 
-  margin-right: 10px; 
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
 }
 .header-left,
 .header-middle,
@@ -33,7 +33,7 @@ body {
 .header-left {
   display: flex;
   align-items: center;
-  margin-right: auto; 
+  margin-right: auto;
 }
 
 .header-middle {
@@ -51,7 +51,7 @@ body {
   margin-left: auto;
   top: 30px;
   right: 30px;
-  color: #EAE3EA; 
+  color: #EAE3EA;
   text-decoration: none;
 }
 @keyframes rollIn {
@@ -71,7 +71,7 @@ body {
   margin-left: 10px;
 }
 .blade-header.scroll {
-  background-color: #eae3ea; 
+  background-color: #eae3ea;
   position: fixed;
   width: 100%;
   top: 0;
@@ -106,12 +106,12 @@ ul {
 }
 .sidebar.active {
   width: 250px;
-  
+
 }
 .sidebar-menu {
   list-style: none;
   padding: 0;
-  text-align: center; 
+  text-align: center;
   width: 100%
 }
 .sidebar-menu li {
@@ -119,13 +119,13 @@ ul {
 }
 .sidebar-menu li a {
   display: block;
-  color: #eae3ea; 
+  color: #eae3ea;
   text-decoration: none;
   padding: 8px 16px;
   transition: background-color 0.3s ease;
 }
 .sidebar-menu li a:hover {
-  background-color: #a7b3a5; 
+  background-color: #a7b3a5;
 }
 .content-container {
   margin: 0 270px;
@@ -140,24 +140,24 @@ ul {
 
 #medicineTable th,
 #medicineTable td {
-  border: 2px solid #b4dbc0; 
+  border: 2px solid #b4dbc0;
   padding: 8px;
   text-align: center;
 }
 
 #medicineTable th {
-  background-color: #A7B3A5; 
+  background-color: #A7B3A5;
   color: white;
 }
 
 
 #medicineTable tbody tr:nth-child(even) {
-  background-color: #b4d8c0; 
+  background-color: #b4d8c0;
 }
 
 
 #medicineTable tbody tr:hover {
-  background-color: #a7b3a5; 
+  background-color: #a7b3a5;
 }
 
 
@@ -178,17 +178,31 @@ tr:nth-child(even) {
 
 button {
   padding: 8px 16px;
-  background-color: #BE5949; 
-  color: #ffffff; 
+  background-color: #BE5949;
+  color: #ffffff;
   border: none;
   cursor: pointer;
-  transition: background-color 0.5s ease; 
-  text-decoration: none; 
+  transition: background-color 0.5s ease;
+  text-decoration: none;
 }
 
 button:hover {
-  background-color: #85463B; 
+  background-color: #85463B;
 }
+
+input[type=submit] {
+    padding: 8px 16px;
+    background-color: #BE5949;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    text-decoration: none;
+  }
+
+  input[type=submit]:hover {
+    background-color: #85463B;
+  }
 
 
 .tree-container {
@@ -197,13 +211,13 @@ button:hover {
 }
 
 .tree-container h1 {
-  font-size: 24px; 
+  font-size: 24px;
   margin-bottom: 20px; /* Added 'px' for margin */
-  color: #BE5949; 
+  color: #BE5949;
 }
 
 .tree-container li {
-  font-size: 20px; 
+  font-size: 20px;
 }
 
 .tree-container ul {
@@ -249,7 +263,7 @@ ul ul {
 }
 .fields-container {
   text-align: center;
-  margin-top: 50px; 
+  margin-top: 50px;
 }
 
 .title {

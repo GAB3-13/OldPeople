@@ -7,10 +7,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PatientDetail extends Model
+class home_care extends Model
 {
     use HasFactory;
-
+    protected $table = "home_care";
     protected $fillable = [
         'patient_name',
         'morning_medication',

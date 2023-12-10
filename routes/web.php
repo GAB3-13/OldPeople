@@ -92,6 +92,7 @@ Route::post('/patientNavigation/submit',[setAppointmentController::class,'submit
 
 //caregiver routes
 Route::get('/caregiverNavigation',[caregiverController::class,'caregiverlogin'])->name('caregiverlogin');
+Route::post('/caregiverNavigation/submit',[caregiverController::class,'createCheckUpdate'])->name('createCheckUpdate');
 
 
 //family routes
@@ -104,6 +105,12 @@ Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'
 Route::get('/doctorNavigation',[doctorController::class,'doctorlogin'])->name('doctorlogin');
 // Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 
+// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 
+// Route::middleware(['auth', 'doctor'])->group(function () {
+//     Route::get('/doctor/home', [DoctorHomeController::class, 'index'])->name('doctor.home');
+//     Route::post('/doctor/submit-till-date', [DoctorHomeController::class, 'submitTillDate'])->name('doctor.submit-till-date');
+// }
 
 ?>
