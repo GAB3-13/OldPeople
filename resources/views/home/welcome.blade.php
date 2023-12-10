@@ -7,7 +7,7 @@
   <link href="/css/welcome.css" rel="stylesheet" >
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
 
-  
+
 </head>
 <body>
 
@@ -26,7 +26,7 @@
         <div class="text">
           <h1>Graceful
             Haven Care Home</h1>
-          <p>Where Compassion Meets 
+          <p>Where Compassion Meets
             Care in Every Step</p>
         </div>
       </div>
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="testimonials-container">
-      <h1>Testies</h1>
+      <h1>Testimonials</h1>
 
       <div class="testimonial">
         <h2>Missy Miss</h2>
@@ -101,7 +101,7 @@
 
         <p>"The dedication and care shown here are remarkable."(R.I.P(too much caviar))</p>
       </div>
-      
+
       <div class="buttons">
         <button class="prev">Prev</button>
         <button class="next">Next</button>
