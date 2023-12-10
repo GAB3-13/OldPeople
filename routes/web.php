@@ -86,6 +86,8 @@ Route::get('/patientNavigation/patientschedule',[patientscheduleController::clas
 Route::get('/patientNavigation/hub',[patienthubController::class,'hub'])->name('hub');
 Route::get('/patientNavigation/setAppointment',[setAppointmentController::class,'setAppointment'])->name('setAppointment');
 Route::post('/patientNavigation/search',[setAppointmentController::class,'search'])->name('search');
+Route::get('/patientNavigation/search',[setAppointmentController::class,'search'])->name('search');
+Route::post('/patientNavigation/submit',[setAppointmentController::class,'submit'])->name('submit');
 
 
 //caregiver routes
