@@ -1,20 +1,23 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Models\caregiver;
-use App\Models\caregivers;
 use App\Models\home_care;
 use App\Models\individuals;
 use Illuminate\Http\Request;
 
+
 class caregiverController extends Controller
 {
+
     public function caregiverlogin(Request $request)
     {
         if (empty(session('userID')) || session('roleID') != 2) {
             return redirect('/login');
         }
+
         $cg = caregiver::select('caregiverID')->where('individualID', session('userID'))->get();
         // dd($cg);
         $caregiverPatients = home_care::join('patients', 'patients.patientID', '=', 'home_care.patientID')
