@@ -23,7 +23,13 @@ class home_care extends Model
         'nightMeds',
         'breakfast',
         'lunch',
-        'dinner'
+        'dinner',
+        'check_morningMeds',
+        'check_afternoonMeds',
+        'check_nightMeds',
+        'check_breakfast',
+        'check_lunch',
+        'check_dinner'
     ];
     protected $attributes = [
         'patientID' => null,
@@ -36,5 +42,11 @@ class home_care extends Model
         'breakfast' => null,
         'lunch' => null,
         'dinner' => null,
+        'check_morningMeds' => null,
+        'check_afternoonMeds' => null,
+        'check_nightMeds' => null,
+        'check_breakfast' => null,
+        'check_lunch' => null,
+        'check_dinner' => null,
     ];
 }

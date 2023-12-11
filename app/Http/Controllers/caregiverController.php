@@ -58,12 +58,12 @@ class caregiverController extends Controller
         home_care::where('appointmentID', $appointmentID)
             ->where('patientID', $appointmentInfo[0]->patientID)
             ->update([
-                'morningMeds' => $numbers[1],
-                'afternoonMeds' => $numbers[3],
-                'nightMeds' => $numbers[5],
-                'breakfast' => $numbers[0],
-                'lunch' => $numbers[2],
-                'dinner' => $numbers[4]
+                'check_morningMeds' => $numbers[1],
+                'check_afternoonMeds' => $numbers[3],
+                'check_nightMeds' => $numbers[5],
+                'check_breakfast' => $numbers[0],
+                'check_lunch' => $numbers[2],
+                'check_dinner' => $numbers[4]
             ]);
 
         return redirect()->back();
