@@ -13,12 +13,21 @@ class profileManagerController extends Controller
         // if (empty(session('roleID')) && intval(substr(str(session('roleID')[0]), 10, 1)) != 6) {
         //     return redirect('/login');
         // }
+        if(empty(session('roleID')) || session('roleID') == 6) {
+            $approvedIndividuals = individuals::where('approved', 1)->get();
 
-        $approvedIndividuals = individuals::where('approved', 1)->get();
+            $unapprovedIndividuals = individuals::where('approved', 0)->get();
 
-        $unapprovedIndividuals = individuals::where('approved', 0)->get();
+            return view('adminpages/profileManager', compact('approvedIndividuals', 'unapprovedIndividuals'));
+        } else {
+            $approvedIndividuals = individuals::where('approved', 1)->wherenot('roleID', 6)->get();
 
-        return view('adminpages/profileManager', compact('approvedIndividuals', 'unapprovedIndividuals'));
+            $unapprovedIndividuals = individuals::where('approved', 0)->wherenot('roleID', 6)->get();
+
+            return view('supervisorpages/profileManager', compact('approvedIndividuals', 'unapprovedIndividuals'));
+        }
+
+
     }
 
     public function updateStatus(Request $request){
@@ -31,10 +40,11 @@ class profileManagerController extends Controller
         if($individual){
 
             $individual->update(['approved' => 1]);
-                return redirect()->route('profileManager')->with('success', 'Status updated successfully');
+            return redirect()->back();
+                // return redirect()->route('profileManager')->with('success', 'Status updated successfully');
         }
-
-        return redirect()->route('profileManager')->with('error', 'Record not found');
+        return redirect()->back()->with('error','Record not found');
+        // return redirect()->route('profileManager')->with('error', 'Record not found');
 
 
 }
@@ -49,10 +59,11 @@ public function unapproveupdateStatus(Request $request){
     if($individual){
 
         $individual->update(['approved' => 0]);
-            return redirect()->route('profileManager')->with('success', 'Status updated successfully');
+        return redirect()->back();
+            // return redirect()->route('profileManager')->with('success', 'Status updated successfully');
     }
-
-    return redirect()->route('profileManager')->with('error', 'Record not found');
+    return redirect()->back()->with('error','Record not found');
+    // return redirect()->route('profileManager')->with('error', 'Record not found');
 
 
 }

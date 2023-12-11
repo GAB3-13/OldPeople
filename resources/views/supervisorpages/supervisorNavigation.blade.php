@@ -15,7 +15,7 @@ $email = "";
 
   @include('supervisorpages/supervisorheader')
   <div class="content-container">
-  <h1>Supervisor nav</h1>
+  <h1>Supervisor nav</h1>wtf
  <img src="{{ asset('images/roleidmeanings.png')}}" alt="" srcset="">
   </div>
 </body>

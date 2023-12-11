@@ -16,6 +16,7 @@ class LoginController extends Controller
     {
         if (!empty(session('roleID'))) {
             $request->session()->flush();
+            return redirect('/login');
         }
         return view('login');
     }
@@ -50,7 +51,7 @@ class LoginController extends Controller
                             return redirect()->route('doctorAppointment');
                             break;
                         case 4: // Family Member
-                            return redirect()->route('family.dashboard');
+                            return redirect()->route('familymemberlogin');
                             break;
                         case 5: // Supervisor
                             return redirect()->route('supervisorlogin');
