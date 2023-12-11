@@ -65,7 +65,7 @@
       </div>
     </div>
     <div class="testimonials-container">
-      <h1>Testimonials</h1>
+      <h1>Testies</h1>
 
       <div class="testimonial">
         <h2>Missy Miss</h2>

@@ -15,13 +15,15 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id('patientID');
             $table->unsignedBigInteger('individualID')->nullable();
-            // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->unsignedBigInteger('careGroupID')->nullable();
-            // $table->foreign('careGroupID')->references('careGroupID')->on('caregroup');
+            $table->unsignedBigInteger('familyCode')->nullable();
             $table->date('admissionDate')->nullable();
             $table->string('morningMed', 255)->nullable();
             $table->string('afternoonMed', 255)->nullable();
             $table->string('nightMed', 255)->nullable();
+            $table->string('breakfast', 255)->nullable();
+            $table->string('lunch', 255)->nullable();
+            $table->string('dinner', 255)->nullable();
             $table->timestamps();
         });
     }

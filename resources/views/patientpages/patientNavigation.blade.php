@@ -15,35 +15,23 @@ $email = "";
 
   @include('patientpages/patientheader')
   <div class="content-container">
+  <h1>Patient Hub</h1>
 
-  <h1>Patient nav</h1>
-  <div class="roster-table">
-    <h2>Set Rosters</h2>
-    <table>    <table class="custom-table">
-        <thead>
-            <tr>
-                <th>Roster Date</th>
-                <th>Supervisor</th>
-                <th>Doctor</th>
-                <th>Caregiver 1</th>
-                <th>Caregiver 2</th>
-                <th>Caregiver 3</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($setRosters as $roster)
-            <tr>
-                <td>{{ $roster->rosterDate }}</td>
-                <td>{{ $roster->supervisor->fName }}</td>
-                <td>{{ $roster->doctor->fName }}</td>
-                <td>{{ $roster->caregiver1->fName }}</td>
-                <td>{{ $roster->caregiver2->fName }}</td>
-                <td>{{ $roster->caregiver3->fName }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+  <h2>Patient Information</h2>
+  <ul>
+    @foreach ($patients as $patient)
+
+    <li><strong>Patient Name:</strong> {{ $patient->fName }} {{ $patient->lName }}</li>
+    <li><strong>Patient ID:</strong> {{ $patient->patientID }}</li>
+    <li><strong>Morning Medicine:</strong> {{ $patient->morningMed }}</li>
+    <li><strong>Afternoon Medicine:</strong> {{ $patient->afternoonMed}}</li>
+    <li><strong>Night Medicine:</strong> {{ $patient->nightMed }}</li>
+    <li><strong>Breakfast:</strong> {{ $patient->breakfast }}</li>
+    <li><strong>Lunch:</strong> {{ $patient->lunch }}</li>
+    <li><strong>Dinner:</strong> {{ $patient->dinner }}</li>
+    @endforeach
+
+  </ul>
   </div>
 </body>
 

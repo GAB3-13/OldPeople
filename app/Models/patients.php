@@ -12,11 +12,18 @@ class patients extends Model
             'patientID',
             'individualID',
             'careGroupID',
+            'familyCode',
             'admissionDate',
             'morningMed',
             'afternoonMed',
             'nightMed',
+            'breakfast',
+            'lunch',
+            'diner'
         ];
-
+        public function individual()
+        {
+            return $this->belongsTo(Individuals::class, 'individualID', 'individualID');
+        }
 
     }

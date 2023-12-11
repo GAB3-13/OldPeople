@@ -17,6 +17,6 @@ class patientController extends Controller
 
 
 
-        return view('patientpages/patientNavigation',compact('setRosters'));
+        return view('patientpages/dashboard',compact('setRosters'));
     }  
 }

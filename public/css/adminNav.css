@@ -45,6 +45,7 @@ body {
 .blade-header h1 {
     font-family: 'Cambria', serif;
       font-size: 3em;
+      color: #eae3ea ;
 }
 #logoutLink {
   position: absolute;
@@ -272,5 +273,28 @@ ul ul {
 
 .fields {
   display: flex;
+  justify-content: center;
+}
+h2 {
+  text-align: center;
+}
+h1{
+  text-align: center;
+}
+
+h2 + ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.content-container {
+  text-align: center;
+}
+
+.content-container h1 {
+  margin: 0;
+  font-family: 'Cambria', serif;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }

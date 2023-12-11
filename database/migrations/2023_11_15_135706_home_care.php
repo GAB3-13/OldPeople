@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('morningMeds', 255)->nullable();
             $table->string('afternoonMeds', 255)->nullable();
             $table->string('nightMeds', 255)->nullable();
-            $table->char('breakfast', 1)->nullable();
-            $table->char('lunch', 1)->nullable();
-            $table->char('dinner', 1)->nullable();
+            $table->char('breakfast', 255)->nullable();
+            $table->char('lunch', 255)->nullable();
+            $table->char('dinner', 255)->nullable();
             $table->timestamps();
         });
     }
