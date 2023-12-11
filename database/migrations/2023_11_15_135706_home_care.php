@@ -15,18 +15,21 @@ return new class extends Migration
         Schema::create('home_care', function (Blueprint $table) {
             $table->id('appointmentID');
             $table->unsignedBigInteger('patientID')->nullable();
-            // $table->foreign('patientID')->references('patientID')->on('patient');
             $table->unsignedBigInteger('doctorID')->nullable();
-            // $table->foreign('doctorID')->references('doctorID')->on('doctors');
             $table->date('appointmentDate')->nullable();
             $table->unsignedBigInteger('caregiverID');
-            // $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
             $table->string('morningMeds', 255)->nullable();
             $table->string('afternoonMeds', 255)->nullable();
             $table->string('nightMeds', 255)->nullable();
-            $table->char('breakfast', 255)->nullable();
-            $table->char('lunch', 255)->nullable();
-            $table->char('dinner', 255)->nullable();
+            $table->string('breakfast', 255)->nullable();
+            $table->string('lunch', 255)->nullable();
+            $table->string('dinner', 255)->nullable();
+            $table->char('check_morningMeds', 1)->nullable();
+            $table->char('check_afternoonMeds', 1)->nullable();
+            $table->char('check_nightMeds', 1)->nullable();
+            $table->char('check_breakfast', 1)->nullable();
+            $table->char('check_lunch', 1)->nullable();
+            $table->char('check_dinner', 1)->nullable();
             $table->timestamps();
         });
     }
