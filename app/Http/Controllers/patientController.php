@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\rosters;
 use Illuminate\Support\Carbon;
+use App\Models\rosters;
+use Illuminate\Http\Request;
 
 class patientController extends Controller
 {

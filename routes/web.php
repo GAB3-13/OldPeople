@@ -34,6 +34,7 @@ use App\Http\Controllers\familypaymentsController;
 
 //doctor
 use App\Http\Controllers\doctorController;
+use App\Http\Controllers\potdController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,6 @@ Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('
 
 Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
-Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppointment'])->name('doctorAppointment');
 
 //admin route
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
@@ -102,6 +102,13 @@ Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'
 
 //Doctors
 Route::get('/doctorNavigation',[doctorController::class,'doctorlogin'])->name('doctorlogin');
+Route::get('/doctorNavigation/potd',[potdController::class,'potd'])->name('potd');
+Route::post('/doctorNavigation/set',[potdController::class,'set'])->name('set');
+// Route::get('/doctorNavigation/set',[potdController::class,'set'])->name('set');
+
+
+// Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppointment'])->name('doctorAppointment');
+
 // Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 
 

@@ -13,7 +13,7 @@
     <aside class="sidebar" id="sidebar">
       <ul class="sidebar-menu">
           <li><a href="/doctorNavigation">Dashboard</a></li>
-          <li><a href="">Patient Of the Day</a></li>
+          <li><a href="/doctorNavigation/potd">Patient Of the Day</a></li>
        
       </ul>
     </aside>
