@@ -53,6 +53,7 @@ Route::get('/', function () {
 
 Route::get('/register',[registerController::class,'register'])->name('register');
 Route::post('/register-submit', [registerController::class, 'registerUser'])->name('register.submit');
+Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
 Route::get('/login',[loginController::class,'login'])->name('login');
 Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('validateLogin');
@@ -61,10 +62,10 @@ Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('
 
 Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
+Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppointment'])->name('doctorAppointment');
 
 //admin route
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
-// Route::get('/adminNavigation',[adminController::class,'adminlogin'])->name('adminlogin');
 Route::get('/adminNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
 Route::post('/adminNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
 Route::post('/adminNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
@@ -79,6 +80,10 @@ Route::post('/adminNavigation/saveRoster', [newRosterController::class, 'saveRos
 Route::get('/supervisorNavigation',[supervisorController::class,'supervisorlogin'])->name('supervisorlogin');
 Route::get('/supervisorNavigation/activity',[activityController::class,'activity'])->name('activity');
 Route::get('/supervisorNavigation/roster',[rosterController::class,'roster'])->name('roster');
+Route::get('/supervisorNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
+Route::post('/supervisorNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
+Route::post('/supervisorNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
+
 
 // patients routes
 Route::get('/patientNavigation',[patientController::class,'patientlogin'])->name('patientlogin');
@@ -92,6 +97,7 @@ Route::post('/patientNavigation/submit',[setAppointmentController::class,'submit
 
 //caregiver routes
 Route::get('/caregiverNavigation',[caregiverController::class,'caregiverlogin'])->name('caregiverlogin');
+Route::post('/caregiverNavigation/submit',[caregiverController::class,'createCheckUpdate'])->name('createCheckUpdate');
 
 
 //family routes
@@ -99,18 +105,17 @@ Route::get('/familymemberNavigation',[familymemberController::class,'familymembe
 Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 
 
-
 //Doctors
 Route::get('/doctorNavigation',[doctorController::class,'doctorlogin'])->name('doctorlogin');
-Route::get('/doctorNavigation/potd',[potdController::class,'potd'])->name('potd');
-Route::post('/doctorNavigation/set',[potdController::class,'set'])->name('set');
-// Route::get('/doctorNavigation/set',[potdController::class,'set'])->name('set');
-
-
-// Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppointment'])->name('doctorAppointment');
-
 // Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 
+// Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
+// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 
+// Route::middleware(['auth', 'doctor'])->group(function () {
+//     Route::get('/doctor/home', [DoctorHomeController::class, 'index'])->name('doctor.home');
+//     Route::post('/doctor/submit-till-date', [DoctorHomeController::class, 'submitTillDate'])->name('doctor.submit-till-date');
+// }
+// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 
 ?>

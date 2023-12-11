@@ -7,17 +7,18 @@
   <link href="/css/welcome.css" rel="stylesheet" >
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
 
-  
+
 </head>
 <body>
 
   <header class="header">
     <div class="header-content">
       {{-- <h1>Graceful Haven Care Home</h1> --}}
-      <h1> <img src="images/cane.png" alt="Image 1"></h1>
+      <h1></h1>
+        {{-- <img src="images/cane.png" alt="Image 1"> --}}
       <div class="buttons">
-        <button class="signup" ><a href="/register">Sign Up</a></button>
-        <button class="login"><a href="/login">Login</a></button>
+        <a href="/register"><button class="signup" >Sign Up</button></a>
+        <a href="/login"><button class="login">Login</button></a>
       </div>
     </div>
   </header>
@@ -26,7 +27,7 @@
         <div class="text">
           <h1>Graceful
             Haven Care Home</h1>
-          <p>Where Compassion Meets 
+          <p>Where Compassion Meets
             Care in Every Step</p>
         </div>
       </div>
@@ -64,7 +65,7 @@
       </div>
     </div>
     <div class="testimonials-container">
-      <h1>Testies</h1>
+      <h1>Testimonials</h1>
 
       <div class="testimonial">
         <h2>Missy Miss</h2>
@@ -101,7 +102,7 @@
 
         <p>"The dedication and care shown here are remarkable."(R.I.P(too much caviar))</p>
       </div>
-      
+
       <div class="buttons">
         <button class="prev">Prev</button>
         <button class="next">Next</button>
@@ -114,7 +115,7 @@
       </div>
       <div class="info-content">
         <h1>Location</h1>
-        <p>Located in the heart Kensington, PA. Graceful Haven Care Home is the safest place you could ever call home. </p>
+        <p>Located in the heart of Kensington, PA. Graceful Haven Care Home is the safest place you could ever call home. </p>
       </div>
     </div>
     <div class="main-content2">

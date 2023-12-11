@@ -1,15 +1,71 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use App\Models\caregiver;
+use App\Models\home_care;
 use App\Models\individuals;
 use Illuminate\Http\Request;
 
+
 class caregiverController extends Controller
 {
+
     public function caregiverlogin(Request $request)
     {
-        $patients = individuals::where('roleID', 1)->where('approved', 1)->get();
-        return view('caregiverpages/caregiverNavigation', compact('patients'));
+        if (empty(session('userID')) || session('roleID') != 2) {
+            return redirect('/login');
+        }
+
+        $cg = caregiver::select('caregiverID')->where('individualID', session('userID'))->get();
+        // dd($cg);
+        $caregiverPatients = home_care::join('patients', 'patients.patientID', '=', 'home_care.patientID')
+            ->join('individuals', 'individuals.individualID', '=', 'patients.individualID')
+            ->where('approved', 1)
+            ->where('caregiverID', $cg[0]->caregiverID)
+            ->get();
+
+        $caregiverInformation = individuals::where('individualID', session('userID'))
+            ->get();
+
+        return view('caregiverpages/caregiverNavigation', ['cgI' => $caregiverInformation])
+            ->with(compact('caregiverPatients'));
+    }
+
+    public function createCheckUpdate(Request $request)
+    {
+        $appointmentID = $request->appointments;
+        $appointmentInfo = home_care::where('appointmentID', $appointmentID)->get();
+        $check = [
+            $request->breakfast,
+            $request->morning_meds,
+            $request->lunch,
+            $request->afternoon_meds,
+            $request->dinner,
+            $request->night_meds
+        ];
+
+        function checkOn($data)
+        {
+            $returnarray = [];
+            foreach ($data as $d) { if ($d == "on") { $returnarray[] = "✓"; } else { $returnarray[] = "✗"; }}
+            return $returnarray;
+        }
+
+        $numbers = checkOn($check);
+
+        home_care::where('appointmentID', $appointmentID)
+            ->where('patientID', $appointmentInfo[0]->patientID)
+            ->update([
+                'morningMeds' => $numbers[1],
+                'afternoonMeds' => $numbers[3],
+                'nightMeds' => $numbers[5],
+                'breakfast' => $numbers[0],
+                'lunch' => $numbers[2],
+                'dinner' => $numbers[4]
+            ]);
+
+        return redirect()->back();
     }
 }

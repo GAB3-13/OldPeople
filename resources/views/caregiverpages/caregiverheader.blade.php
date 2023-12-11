@@ -17,7 +17,7 @@
 
 
 
-  
+
   <script>
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownHeader = document.getElementById('dropdownHeader');
@@ -35,11 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutLink = document.getElementById('logoutLink');
     logoutLink.addEventListener('click', function(event) {
         event.preventDefault();
-        window.location.href = '/';
+        window.location.href = '/login';
     });
 });
 
   </script>
 
-   
-    
+

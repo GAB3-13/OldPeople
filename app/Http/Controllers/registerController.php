@@ -41,9 +41,9 @@ class registerController extends Controller
         if($data['roleID'] == 1){
 
             $patients = patients::create([
-                'individualID' => $individualID,
-                'careGroupID' => null,
-                'admissionDate'=> null
+                'individualID'=>$individualID,
+                'careGroupID'=>null,
+                'admissionDate'=>today()
             ]);
 
             $patientID = $patients->patientID;

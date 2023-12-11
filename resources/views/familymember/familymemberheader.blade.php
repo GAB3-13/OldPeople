@@ -9,38 +9,37 @@
       <a href="#" id="logoutLink">Logout</a>
   </div>
 </header>
-  
+
   <aside class="sidebar" id="sidebar">
     <ul class="sidebar-menu">
         <li><a href="/familymemberNavigation">Dashboard</a></li>
         <li><a href="/familymemberNavigation/payments">Payments</a></li>
-     
+
     </ul>
   </aside>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
         const dropdownHeader = document.getElementById('dropdownHeader');
         // const sidebar = document.getElementById('sidebar');
         const caneImage = document.getElementById('cane');
-    
+
         // dropdownHeader.addEventListener('click', function() {
         //     sidebar.classList.toggle('active');
         // });
-    
+
         caneImage.addEventListener('click', function() {
             sidebar.classList.toggle('active');
         });
-    
+
         const logoutLink = document.getElementById('logoutLink');
         logoutLink.addEventListener('click', function(event) {
             event.preventDefault();
-            window.location.href = '/';
+            window.location.href = '/login';
         });
     });
-    
-      </script>
-    
 
-   
-    
+      </script>
+
+
+
