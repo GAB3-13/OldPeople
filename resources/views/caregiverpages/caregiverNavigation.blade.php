@@ -52,12 +52,12 @@ $email = '';
                     <tr>
                         <td>{{ $cgP->fName }} {{ $cgP->lName }}</td>
                         <td>{{ $cgP->appointmentDate }}</td>
-                        <td>{{ $cgP->breakfast }}</td>
-                        <td>{{ $cgP->morningMeds }}</td>
-                        <td>{{ $cgP->lunch }}</td>
-                        <td>{{ $cgP->afternoonMeds }}</td>
-                        <td>{{ $cgP->dinner }}</td>
-                        <td>{{ $cgP->nightMeds }}</td>
+                        <td>{{ $cgP->check_breakfast }}</td>
+                        <td>{{ $cgP->check_morningMeds }}</td>
+                        <td>{{ $cgP->check_lunch }}</td>
+                        <td>{{ $cgP->check_afternoonMeds }}</td>
+                        <td>{{ $cgP->check_dinner }}</td>
+                        <td>{{ $cgP->check_nightMeds }}</td>
                     </tr>
                 @endforeach
                 </tr>
