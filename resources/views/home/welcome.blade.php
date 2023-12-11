@@ -14,7 +14,8 @@
   <header class="header">
     <div class="header-content">
       {{-- <h1>Graceful Haven Care Home</h1> --}}
-      <h1> <img src="images/cane.png" alt="Image 1"></h1>
+      <h1></h1>
+        {{-- <img src="images/cane.png" alt="Image 1"> --}}
       <div class="buttons">
         <a href="/register"><button class="signup" >Sign Up</button></a>
         <a href="/login"><button class="login">Login</button></a>
