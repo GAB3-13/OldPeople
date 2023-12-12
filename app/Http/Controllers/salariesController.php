@@ -9,9 +9,10 @@ class salariesController extends Controller
 {
     public function salaries()
 {
-    // if (empty(session('roleID')) && intval(substr(str(session('roleID')[0]), 10, 1)) != 6) {
-    //     return redirect('/login');
-    // }
+    if (session()->has('userID') && session()->has('roleID')) {
+        $userID = session('userID');
+        $roleID = session('roleID');
+
     $caregiverIndividuals = Individuals::leftJoin('salaries', 'individuals.individualID', '=', 'salaries.individualID')
         ->where('individuals.roleID', 2)
         ->where('individuals.approved', 1)
@@ -27,26 +28,35 @@ class salariesController extends Controller
         ->where('individuals.approved', 1)
         ->get(['individuals.*', 'salaries.salary']);
 
-    return view('adminpages.salaries', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals'));
+        return view('adminpages.salaries', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals'));
+
+} 
+
+
+else {
+
+    return redirect('/login');
 }
+}  
+
 
     public function updateSalary(Request $request)
     {
-        // if (empty(session('roleID')) && intval(substr(str(session('roleID')[0]), 10, 1)) != 6) {
-        //     return redirect('/login');
-        // }
 
-        $individualID = substr($request->input('individualIDd'), 10); // for doctors
-        // OR
-        $individualID = substr($request->input('individualIDc'), 10); // for caregivers
-        // OR
-        $individualID = substr($request->input('individualIDs'), 10); // for supervisors
-                $newSalary = $request->input('individual' . $individualID . 'Salary');
-dd($individualID,$newSalary);
-        salaries::updateOrCreate(
-            ['individualID' => $individualID],
-            ['salary' => $newSalary]
-        );
+        $individualIDs = $request->input('individualID');
+        $roleIDs = $request->input('roleID');
+        $newSalaries = $request->input('salary');
+
+        // dd($individualIDs,$roleIDs,$newSalaries);
+
+        foreach ($individualIDs as $key => $individualID) {
+            $newSalary = $newSalaries[$individualID];
+    
+            salaries::updateOrCreate(
+                ['individualID' => $individualID,],
+                ['salary' => $newSalary]
+            );
+        }
 
         return redirect()->back()->with('success', 'Salary updated successfully');
     }

@@ -24,6 +24,7 @@ $email = "";
         <th>First Name</th>
         <th>Last Name</th>
         <th>Role ID</th>
+        <th>Individual ID</th>
         <th>Salary</th>
         <th>Action</th>
       </tr>
@@ -31,14 +32,19 @@ $email = "";
     <form method="post" action="{{ route('updateSalary') }}">
       @csrf
     @foreach($doctorIndividuals as $docs)
-    <input type="hidden" name="individualIDd" value="individual{{ $docs->individualID }}">
-    <input type="hidden" name="roleID" value="{{ $docs->roleID }}">
+    {{-- <input type="hidden" name="individualIDd" value="{{ $docs->individualID }}">
+    <input type="hidden" name="roleID" value="{{ $docs->roleID }}"> --}}
     <tr>
         <td>{{ $docs->fName }}</td>
         <td>{{ $docs->lName }}</td>
         <td>{{ $docs->roleID }}</td>
+        <td>{{ $docs->individualID }}</td>
+
         <td>
-            <input type="text" name="individual{{ $docs->individualID }}Salary" value="{{ $docs->salary }}">
+          <input type="hidden" name="individualID[]" value="{{ $docs->individualID }}">
+          <input type="hidden" name="roleID[]" value="{{ $docs->roleID }}">
+          <input type="text" name="salary[{{ $docs->individualID }}]" value="{{ $docs->salary }}">
+
         </td>
         <td>
             <button type="submit">Update</button>
@@ -55,6 +61,7 @@ $email = "";
         <th>First Name</th>
         <th>Last Name</th>
         <th>Role ID</th>
+        <th>Individual ID</th>
         <th>Salary</th>
         <th>Action</th>
       </tr>
@@ -63,14 +70,18 @@ $email = "";
       <form method="post" action="{{ route('updateSalary') }}">
         @csrf
       @foreach($caregiverIndividuals as $caregiver)
-      <input type="hidden" name="individualIDc" value="individual{{ $caregiver->individualID }}">
+      <input type="hidden" name="individualIDc" value="individualIDc{{ $caregiver->individualID }}">
     <input type="hidden" name="roleID" value="{{ $caregiver->roleID }}">
       <tr>
           <td>{{ $caregiver->fName }}</td>
           <td>{{ $caregiver->lName }}</td>
           <td>{{ $caregiver->roleID }}</td>
+          <td>{{ $caregiver->individualID }}</td>
+
           <td>
-              <input type="text" name="individual{{ $caregiver->individualID }}Salary" value="{{ $caregiver->salary }}">
+            <input type="hidden" name="individualID[]" value="{{ $caregiver->individualID }}">
+            <input type="hidden" name="roleID[]" value="{{ $caregiver->roleID }}">
+            <input type="text" name="salary[{{ $caregiver->individualID }}]" value="{{ $caregiver->salary }}">
           </td>
           <td>
               <button type="submit">Update</button>
@@ -89,6 +100,7 @@ $email = "";
         <th>First Name</th>
         <th>Last Name</th>
         <th>Role ID</th>
+        <th>Individual ID</th>
         <th>Salary</th>
         <th>Action</th>
       </tr>
@@ -97,17 +109,19 @@ $email = "";
       <form method="post" action="{{ route('updateSalary') }}">
         @csrf
       @foreach($supervisorIndividuals as $supa)
-      <input type="hidden" name="individualIDs" value="individual{{ $supa->individualID }}">
+      <input type="hidden" name="individualIDs" value="individualIDs{{ $supa->individualID }}">
     <input type="hidden" name="roleID" value="{{ $supa->roleID }}">
       <tr>
           <td>{{ $supa->fName }}</td>
           <td>{{ $supa->lName }}</td>
           <td>{{ $supa->roleID }}</td>
+          <td>{{ $supa->individualID }}</td>
+
          <td>
-              <input type="text" name="individual{{ $supa->individualID }}Salary" value="{{ $supa->salary }}">
-          </td>
+          <input type="hidden" name="individualID[]" value="{{ $supa->individualID }}">
+          <input type="hidden" name="roleID[]" value="{{ $supa->roleID }}">
+          <input type="text" name="salary[{{ $supa->individualID }}]" value="{{ $supa->salary }}">          </td>
           <td>
-         
               <button type="submit">Update</button>
           </td>
       </tr>

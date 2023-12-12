@@ -30,6 +30,7 @@ class registerController extends Controller
             'dob' => $data['dob'],
             'roleID' =>$data['roleID']
         ]);
+        // dd($individual);
 
         $individualID = $individual->individualID;
 
@@ -43,10 +44,11 @@ class registerController extends Controller
             $patients = patients::create([
                 'individualID'=>$individualID,
                 'careGroupID'=>null,
+                'familyCode'=>$data['familyCode'],
                 'admissionDate'=>today()
             ]);
 
-            $patientID = $patients->patientID;
+            $patientID = $patients->id;
 
             emergencyContact::create([
                 'patientID'=>$patientID,
