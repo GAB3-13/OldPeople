@@ -29,12 +29,21 @@ use App\Http\Controllers\caregiverController;
 //family
 use App\Http\Controllers\familymemberController;
 use App\Http\Controllers\familypaymentsController;
+use App\Http\Controllers\familyRosterController;
 
 
 
 //doctor
 use App\Http\Controllers\doctorController;
 use App\Http\Controllers\potdController;
+use App\Http\Controllers\doctorRosterController;
+
+
+//supervisor
+use App\Http\Controllers\supervisorprofileManagerController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -80,9 +89,14 @@ Route::post('/adminNavigation/saveRoster', [newRosterController::class, 'saveRos
 Route::get('/supervisorNavigation',[supervisorController::class,'supervisorlogin'])->name('supervisorlogin');
 Route::get('/supervisorNavigation/activity',[activityController::class,'activity'])->name('activity');
 Route::get('/supervisorNavigation/roster',[rosterController::class,'roster'])->name('roster');
-Route::get('/supervisorNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
-Route::post('/supervisorNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
-Route::post('/supervisorNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
+// Route::get('/supervisorNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
+// Route::post('/supervisorNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
+// Route::post('/supervisorNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
+
+//
+Route::get('/supervisorNavigation/profileManager',[supervisorprofileManagerController::class,'profileManager'])->name('profileManager');
+Route::post('/supervisorNavigation/profileManager/unapproveupdateStatus', [supervisorprofileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
+Route::post('/supervisorNavigation/profileManager/updateStatus', [supervisorprofileManagerController::class, 'updateStatus'])->name('updateStatus');
 
 
 // patients routes
@@ -103,12 +117,16 @@ Route::post('/caregiverNavigation/submit',[caregiverController::class,'createChe
 //family routes
 Route::get('/familymemberNavigation',[familymemberController::class,'familymemberlogin'])->name('familymemberlogin');
 Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
+Route::get('/familymemberNavigation/newRoster',[familyRosterController::class,'newRoster'])->name('newRoster');
+
 
 
 //Doctors
-Route::get('/doctorNavigation',[doctorController::class,'doctorlogin'])->name('doctorlogin');
+Route::get('/doctorNavigation',[doctorRosterController::class,'newRoster'])->name('newRoster');
 Route::get('/doctorNavigation/potd',[potdController::class,'potd'])->name('potd');
 Route::post('/doctorNavigation/set',[potdController::class,'set'])->name('set');
+// Route::get('/doctorNavigation/newRoster',[doctorRosterController::class,'newRoster'])->name('newRoster');
+
 // Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 
 // Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');

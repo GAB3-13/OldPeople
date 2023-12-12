@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Models\newRoster;
+// use\App\Models\individuals;
 use App\Models\rosters;
 use Illuminate\Support\Carbon;
-
-
 use App\Models\individuals;
 
 class newRosterController extends Controller
 {
     public function newRoster()
     {
+        if (session()->has('userID') && session()->has('roleID')) {
+            $userID = session('userID');
+            $roleID = session('roleID');
+
         $today = Carbon::today();
 
         $setRosters = Rosters::whereDate('rosterDate', '>=', $today)
@@ -33,6 +36,14 @@ class newRosterController extends Controller
             ->get(); 
     
         return view('adminpages/newroster', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals','setRosters'));
+
+    } 
+    
+    
+    else {
+ 
+        return redirect('/login');
+    }
     }
     
 
@@ -49,6 +60,7 @@ class newRosterController extends Controller
                 'caregiverID2' => 'required|different:caregiverID1,different:caregiverID3',
                 'caregiverID3' => 'required|different:caregiverID1,different:caregiverID2',
             ]);
+            // dd($validatedData);
     // dd($validatedData);
             $roster = rosters::create($validatedData);
             return redirect()->route('newRoster')->with('success', 'Roster created successfully!');
