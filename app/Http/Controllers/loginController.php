@@ -48,7 +48,7 @@ class LoginController extends Controller
                             return redirect()->route('caregiverlogin');
                             break;
                         case 3: // Doctor
-                            return redirect()->route('doctorlogin');
+                            return redirect()->route('newRoster');
                             break;
                         case 4: // Family Member
                             return redirect()->route('familymemberlogin');
