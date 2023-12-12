@@ -72,14 +72,14 @@
     <script>
         function updateDetails() {
             // Add logic to fetch and display patient details based on family code and patient id
-            document.getElementById('patientDetails').style.display = 'block';
+            document.getElementById('individualID' => 'individualID').style.display = 'block';
         }
 
         function refreshPage() {
             // Reset the form and hide patient details
             document.getElementById('familyCode').value = '';
             document.getElementById('patientId').value = '';
-            document.getElementById('patientDetails').style.display = 'none';
+            document.getElementById('individualID').style.display = 'none';
         }
 
         // Function to update the date to the current date
