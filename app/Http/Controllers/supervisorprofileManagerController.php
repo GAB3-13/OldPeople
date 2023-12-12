@@ -32,7 +32,6 @@ class supervisorprofileManagerController extends Controller
 
 
         $individual = individuals::find($request->individualID);
-
         if($individual){
 
             $individual->update(['approved' => 1]);
