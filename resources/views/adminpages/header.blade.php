@@ -18,6 +18,8 @@
         <li><a href="/adminNavigation/userPayments">User Payments</a></li>
         <li><a href="/adminNavigation/salaries">Salaries</a></li>
         <li><a href="/adminNavigation/newRoster">New Roster</a></li>
+        <li><a href="/adminNavigation/dailyreport"> Daily Report</a></li>
+
     </ul>
 </aside>
 

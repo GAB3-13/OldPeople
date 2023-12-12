@@ -13,9 +13,14 @@ use App\Http\Controllers\rosterController;
 use App\Http\Controllers\salariesController;
 use App\Http\Controllers\supervisorController;
 use App\Http\Controllers\userPaymentsController;
-//
+//admin
 use App\Http\Controllers\adminNavigationController;
 use App\Http\Controllers\newRosterController;
+use App\Http\Controllers\dailyreportController;
+
+
+
+
 //patients
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\patientscheduleController;
@@ -83,12 +88,15 @@ Route::get('/adminNavigation/salaries',[salariesController::class,'salaries'])->
 Route::post('/adminNavigation/salaries',[salariesController::class,'updateSalary'])->name('updateSalary');
 Route::get('/adminNavigation/newRoster',[newRosterController::class,'newRoster'])->name('newRoster');
 Route::post('/adminNavigation/saveRoster', [newRosterController::class, 'saveRoster'])->name('saveRoster');
+Route::get('/adminNavigation/dailyreport',[dailyreportController::class,'report'])->name('report');
 
 
 //supervisor routes
 Route::get('/supervisorNavigation',[supervisorController::class,'supervisorlogin'])->name('supervisorlogin');
 Route::get('/supervisorNavigation/activity',[activityController::class,'activity'])->name('activity');
 Route::get('/supervisorNavigation/roster',[rosterController::class,'roster'])->name('roster');
+Route::post('/supervisorNavigation/saveroster',[rosterController::class,'saveRosterr'])->name('saveRosterr');
+
 // Route::get('/supervisorNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
 // Route::post('/supervisorNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
 // Route::post('/supervisorNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
@@ -125,6 +133,8 @@ Route::get('/familymemberNavigation/newRoster',[familyRosterController::class,'n
 Route::get('/doctorNavigation',[doctorRosterController::class,'newRoster'])->name('newRoster');
 Route::get('/doctorNavigation/potd',[potdController::class,'potd'])->name('potd');
 Route::post('/doctorNavigation/set',[potdController::class,'set'])->name('set');
+// Route::post('/doctorNavigation/details',[potdController::class,'details'])->name('details');
+
 // Route::get('/doctorNavigation/newRoster',[doctorRosterController::class,'newRoster'])->name('newRoster');
 
 // Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');

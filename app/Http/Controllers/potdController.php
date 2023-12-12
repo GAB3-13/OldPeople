@@ -68,9 +68,6 @@ public function potd(){
             }
 
 
-
-// dd($caregiversDetails);
-
     return view('doctorpages/potd', compact('appointments', 'caregiversDetails'));
 
     } 
