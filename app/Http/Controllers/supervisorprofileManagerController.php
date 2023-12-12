@@ -10,8 +10,11 @@ class supervisorprofileManagerController extends Controller
 {
     public function profileManager()
     {
- 
-        if(empty(session('roleID')) || session('roleID') == 5) {
+        if (empty(session('roleID')) || session('roleID') != 6 || session('roleID') != 5) {
+            return redirect('/login');
+        }
+
+        if (session('roleID') == 6) {
             $approvedIndividuals = individuals::where('approved', 1)->get();
 
             $unapprovedIndividuals = individuals::where('approved', 0)->get();
@@ -24,37 +27,33 @@ class supervisorprofileManagerController extends Controller
 
             return view('supervisorpages/profileManager', compact('approvedIndividuals', 'unapprovedIndividuals'));
         }
-
-
     }
 
-    public function updateStatus(Request $request){
+    public function updateStatus(Request $request)
+    {
 
 
         $individual = individuals::find($request->individualID);
 
-        if($individual){
+        if ($individual) {
 
             $individual->update(['approved' => 1]);
             return redirect()->back();
         }
-        return redirect()->back()->with('error','Record not found');
-
-
-}
-
-public function unapproveupdateStatus(Request $request){
-
-
-    $individual = individuals::find($request->individualID);
-
-    if($individual){
-
-        $individual->update(['approved' => 0]);
-        return redirect()->back();
+        return redirect()->back()->with('error', 'Record not found');
     }
-    return redirect()->back()->with('error','Record not found');
+
+    public function unapproveupdateStatus(Request $request)
+    {
 
 
-}
+        $individual = individuals::find($request->individualID);
+
+        if ($individual) {
+
+            $individual->update(['approved' => 0]);
+            return redirect()->back();
+        }
+        return redirect()->back()->with('error', 'Record not found');
+    }
 }
