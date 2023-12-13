@@ -73,3 +73,23 @@ body {
   .login:hover {
     background-color:#cb503d;
   }
+  .samplelog {
+    display: none;
+    border: 2px solid #ccc;
+    background-color: #cb503d8d;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.samplelog p {
+    margin: 5px 0;
+}
+
+.samplelog p:first-child {
+    margin-top: 0;
+}
+
+.samplelog p:last-child {
+    margin-bottom: 0;
+}

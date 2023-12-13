@@ -18,7 +18,7 @@ $email = "";
   <div class="roster-table">
     <h2>Set Rosters</h2>
     <table>   
-      {{-- <table class="custom-table">
+      <table class="custom-table">
         <thead>
             <tr>
                 <th>Roster Date</th>
@@ -41,7 +41,7 @@ $email = "";
             </tr>
             @endforeach
         </tbody>
-    </table> --}}
+    </table>
 </div>
   </div>
 </body>

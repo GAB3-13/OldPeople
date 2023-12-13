@@ -13,7 +13,7 @@
   <aside class="sidebar" id="sidebar">
     <ul class="sidebar-menu">
         <li><a href="/supervisorNavigation">Dashboard</a></li>
-        <li><a href="/supervisorNavigation/activity">Activity</a></li>
+        {{-- <li><a href="/supervisorNavigation/activity">Activity</a></li> --}}
         <li><a href="/supervisorNavigation/roster">Roster</a></li>
         <li><a href="/supervisorNavigation/profileManager">Profile Manager</a></li>
 

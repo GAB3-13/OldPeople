@@ -12,11 +12,9 @@
 
   <aside class="sidebar" id="sidebar">
     <ul class="sidebar-menu">
-        <li><a href="/familymemberNavigation">Dashboard</a></li>
-        <li><a href="/familymemberNavigation/newRoster">Dashboard2</a></li>
+      <li><a href="/familymemberNavigation/newRoster">Dashboard</a></li>
 
-        <li><a href="/familymemberNavigation/payments">Payments</a></li>
-
+        <li><a href="/familymemberNavigation">Patient Lookup</a></li>
     </ul>
   </aside>
 

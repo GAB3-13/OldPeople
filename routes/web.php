@@ -96,13 +96,7 @@ Route::get('/supervisorNavigation',[supervisorController::class,'supervisorlogin
 Route::get('/supervisorNavigation/activity',[activityController::class,'activity'])->name('activity');
 Route::get('/supervisorNavigation/roster',[rosterController::class,'roster'])->name('roster');
 Route::post('/supervisorNavigation/saveroster',[rosterController::class,'saveRosterr'])->name('saveRosterr');
-
-// Route::get('/supervisorNavigation/profileManager',[profileManagerController::class,'profileManager'])->name('profileManager');
-// Route::post('/supervisorNavigation/profileManager/unapproveupdateStatus', [profileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
-// Route::post('/supervisorNavigation/profileManager/updateStatus', [profileManagerController::class, 'updateStatus'])->name('updateStatus');
-
-//
-Route::get('/supervisorNavigation/profileManager',[supervisorprofileManagerController::class,'profileManager'])->name('profileManager');
+Route::get('/supervisorNavigation/profileManager',[supervisorprofileManagerController::class,'profileManagerr'])->name('profileManagerr');
 Route::post('/supervisorNavigation/profileManager/unapproveupdateStatus', [supervisorprofileManagerController::class, 'unapproveupdateStatus'])->name('unapproveupdateStatus');
 Route::post('/supervisorNavigation/profileManager/updateStatus', [supervisorprofileManagerController::class, 'updateStatus'])->name('updateStatus');
 
@@ -124,6 +118,8 @@ Route::post('/caregiverNavigation/submit',[caregiverController::class,'createChe
 
 //family routes
 Route::get('/familymemberNavigation',[familymemberController::class,'familymemberlogin'])->name('familymemberlogin');
+Route::post('/familymemberNavigation/searchpatient',[familymemberController::class,'searchpatient'])->name('searchpatient');
+
 Route::get('/familymemberNavigation/payments',[familypaymentsController::class,'familypayments'])->name('familypayments');
 Route::get('/familymemberNavigation/newRoster',[familyRosterController::class,'newRoster'])->name('newRoster');
 

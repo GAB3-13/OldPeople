@@ -8,26 +8,23 @@ use Illuminate\Http\Request;
 
 class supervisorprofileManagerController extends Controller
 {
-    public function profileManager()
+    public function profileManagerr()
     {
-        if (empty(session('roleID')) || session('roleID') != 6 || session('roleID') != 5) {
+        if (empty(session('roleID')) || (session('roleID') != 6 && session('roleID') != 5)) {
             return redirect('/login');
         }
-
+    
         if (session('roleID') == 6) {
             $approvedIndividuals = individuals::where('approved', 1)->get();
-
             $unapprovedIndividuals = individuals::where('approved', 0)->get();
-
             return view('adminpages/profileManager', compact('approvedIndividuals', 'unapprovedIndividuals'));
         } else {
-            $approvedIndividuals = individuals::where('approved', 1)->wherenot('roleID', 6)->get();
-
-            $unapprovedIndividuals = individuals::where('approved', 0)->wherenot('roleID', 6)->get();
-
+            $approvedIndividuals = individuals::where('approved', 1)->whereNotIn('roleID', [6])->get();
+            $unapprovedIndividuals = individuals::where('approved', 0)->whereNotIn('roleID', [6])->get();
             return view('supervisorpages/profileManager', compact('approvedIndividuals', 'unapprovedIndividuals'));
         }
     }
+    
 
     public function updateStatus(Request $request)
     {

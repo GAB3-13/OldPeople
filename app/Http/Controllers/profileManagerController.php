@@ -13,7 +13,9 @@ class profileManagerController extends Controller
         // if (empty(session('roleID')) && intval(substr(str(session('roleID')[0]), 10, 1)) != 6) {
         //     return redirect('/login');
         // }
-        if(empty(session('roleID')) || session('roleID') == 6) {
+        // dd(session('roleID'));
+
+        if(empty(session('roleID')) || session('roleID') == 6 || session('roleID') == 5) {
             $approvedIndividuals = individuals::where('approved', 1)->get();
 
             $unapprovedIndividuals = individuals::where('approved', 0)->get();
