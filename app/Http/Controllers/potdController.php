@@ -112,6 +112,9 @@ public function set(Request $request)
         $dinner = $request->input('dinner');
 
         $homeCare = home_care::where('appointmentID', $appointmentID)->first();
+        // $patient = patients::where('patientID', $patientID)->first();
+        
+// dd($patientID);
 //update or create stuff
 
         if ($homeCare) {
@@ -139,6 +142,35 @@ public function set(Request $request)
             $newHomeCare->appointmentDate = $today;
             $newHomeCare->save();
         }
+        // dd($patient);
+        $patient = patients::where('patientID', $patientID)->first();
+
+        if ($patient) {
+            // Patient exists, update the record
+            $patient->morningMed = $morningMeds;
+            $patient->afternoonMed = $afternoonMeds;
+            $patient->nightMed = $nightMeds;
+            $patient->breakfast = $breakfast;
+            $patient->lunch = $lunch;
+            $patient->dinner = $dinner;
+            $patient->save();
+        } else {
+            // Patient doesn't exist, create a new patient record
+            $newPatient = new patients();
+            $newPatient->patientID = $patientID;
+            $newPatient->individualID = $patientID; // Not sure if this should be different from patientID
+            $newPatient->caregroup = null;
+            $newPatient->familyCode = 1; // Verify if this should be the family code
+            $newPatient->admissionDate = $today; // Assuming admission date should be set to today
+            $newPatient->morningMeds = $morningMeds;
+            $newPatient->afternoonMeds = $afternoonMeds;
+            $newPatient->nightMeds = $nightMeds;
+            $newPatient->breakfast = $breakfast;
+            $newPatient->lunch = $lunch;
+            $newPatient->dinner = $dinner;
+            $newPatient->save();
+        }
+
 
 
     return redirect()->back()->with('success', 'Data updated successfully');
