@@ -6,16 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\rosters;
 use App\Models\DoctorAppointment;
-use App\Models\Patients; 
-use App\Models\individuals; 
-use App\Models\home_care; 
-use App\Models\caregiver; 
+use App\Models\Patients;
+use App\Models\individuals;
+use App\Models\home_care;
+use App\Models\caregiver;
 
-
-
-
-class potdController extends Controller
-{
+class potdController extends Controller {
 public function potd(){
 
     if (session()->has('userID') && session()->has('roleID')) {
@@ -29,16 +25,14 @@ public function potd(){
         ->get()
         ->flatMap(function ($roster) {
             return [$roster->caregiverID1, $roster->caregiverID2, $roster->caregiverID3];
-        })        ->filter() 
+        })        ->filter()
         ->unique()
         ->values();
-    
+
     $caregiversDetails = Individuals::whereIn('individualID', $caregiversToday)
         ->select('individualID', 'fName', 'lName')
         ->get()
         ->keyBy('individualID');
-    
-// dd($caregiversDetails);
 
         $setRosters = Rosters::whereDate('rosterDate', '>=', $today)
             ->orderBy('rosterDate')
@@ -70,11 +64,11 @@ public function potd(){
 
     return view('doctorpages/potd', compact('appointments', 'caregiversDetails'));
 
-    } 
-    
-    
+    }
+
+
     else {
- 
+
         return redirect('/login');
     }
 }
@@ -99,8 +93,9 @@ public function set(Request $request)
          $appointment->save();
      }
      $individualID = $request->input('caregiverID');
-     $caregiver = caregiver::where('individualID', $individualID)->first();
-     $caregiverID = $caregiver->caregiverID;
+    //  dd($individualID);
+     $caregiver = caregiver::where('individualID', $individualID)->get();
+     $caregiverID = $caregiver[0]->caregiverID;
 
 
         $patientID = $request->input('patientID');
@@ -123,7 +118,7 @@ public function set(Request $request)
             $homeCare->breakfast = $breakfast;
             $homeCare->lunch = $lunch;
             $homeCare->dinner = $dinner;
-            $homeCare->appointmentDate = $today; 
+            $homeCare->appointmentDate = $today;
             $homeCare->save();
         } else {
             $newHomeCare = new home_care();
@@ -143,11 +138,11 @@ public function set(Request $request)
 
     return redirect()->back()->with('success', 'Data updated successfully');
 
-    } 
-    
-    
+    }
+
+
     else {
- 
+
         return redirect('/login');
     }
 }

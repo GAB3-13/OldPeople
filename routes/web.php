@@ -89,6 +89,8 @@ Route::post('/adminNavigation/salaries',[salariesController::class,'updateSalary
 Route::get('/adminNavigation/newRoster',[newRosterController::class,'newRoster'])->name('newRoster');
 Route::post('/adminNavigation/saveRoster', [newRosterController::class, 'saveRoster'])->name('saveRoster');
 Route::get('/adminNavigation/dailyreport',[dailyreportController::class,'report'])->name('report');
+Route::post('/adminNavigation/userPayments/update',[userPaymentsController::class,'updatePayment'])->name('updatePayment');
+
 
 
 //supervisor routes

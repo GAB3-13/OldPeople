@@ -8,6 +8,7 @@ use App\Models\individuals;
 use App\Models\patients;
 use App\Models\emergencyContact;
 use App\Models\password;
+use App\Models\payments;
 use App\Models\supervisors;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,7 @@ class registerController extends Controller
                 'admissionDate'=>today()
             ]);
 
-            $patientID = $patients->id;
+            $patientID = $patients->patientID;
 
             emergencyContact::create([
                 'patientID'=>$patientID,
@@ -56,6 +57,11 @@ class registerController extends Controller
                 'emergencyContact'=>$data['emergencyContact'],
                 'relation'=>$data['ecRelationship']
             ]);
+
+            payments::create([
+                'patientID'=>$patientID,
+            ]);
+
         }
 
         if($data['roleID'] == 2){

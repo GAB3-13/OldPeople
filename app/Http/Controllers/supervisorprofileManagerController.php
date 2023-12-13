@@ -6,12 +6,20 @@ use App\Models\individuals;
 
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\alert;
+
 class supervisorprofileManagerController extends Controller
 {
     public function profileManagerr()
     {
+<<<<<<< Updated upstream
     if(empty(session('roleID')) || session('roleID') == 6 || session('roleID') == 5) {
         $approvedIndividuals = individuals::where('approved', 1)->get();
+=======
+        if (empty(session('userID')) && session('roleID') != 6 || session('roleID') != 5) {
+            return redirect('/login');
+        }
+>>>>>>> Stashed changes
 
         $unapprovedIndividuals = individuals::where('approved', 0)->get();
 
