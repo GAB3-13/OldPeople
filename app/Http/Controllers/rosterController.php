@@ -10,40 +10,40 @@ use App\Models\individuals;
 class rosterController extends Controller
 {
     public function roster()
-   
+
         {
-            if (session()->has('userID') && session()->has('roleID')) {
-                $userID = session('userID');
-                $roleID = session('roleID');
-    
+
+            if(empty(session('userID')) || session('roleID') != 5) {
+                return redirect('/login');
+            }
             $today = Carbon::today();
-    
+
             $setRosters = Rosters::whereDate('rosterDate', '>=', $today)
                 ->orderBy('rosterDate')
                 ->get();
-    
+
             $caregiverIndividuals = Individuals::where('roleID', 2)
                 ->where('approved', 1)
-                ->get(); 
-        
+                ->get();
+
             $doctorIndividuals = Individuals::where('roleID', 3)
                 ->where('approved', 1)
-                ->get(); 
-        
+                ->get();
+
             $supervisorIndividuals = Individuals::where('roleID', 5)
                 ->where('approved', 1)
-                ->get(); 
-        
+                ->get();
+
             return view('supervisorpages/roster', compact('caregiverIndividuals', 'doctorIndividuals', 'supervisorIndividuals','setRosters'));
-    
-        } 
-        
-        
-        else {
-     
-            return redirect('/login');
+
         }
-        }
+
+
+        // else {
+
+        //     return redirect('/login');
+        // }
+
         public function saveRosterr(Request $request)
         {
             try {
@@ -64,5 +64,5 @@ class rosterController extends Controller
                 return redirect()->route('newRoster', ['error' => 'Failed to create the roster!']);
             }
         }
-    
+
 }

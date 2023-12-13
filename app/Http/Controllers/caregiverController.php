@@ -19,7 +19,7 @@ class caregiverController extends Controller
         }
 
         $cg = caregiver::select('caregiverID')->where('individualID', session('userID'))->get();
-        // dd($cg);
+
         $caregiverPatients = home_care::join('patients', 'patients.patientID', '=', 'home_care.patientID')
             ->join('individuals', 'individuals.individualID', '=', 'patients.individualID')
             ->where('approved', 1)
